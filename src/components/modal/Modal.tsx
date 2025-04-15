@@ -1,4 +1,18 @@
-import { CloseButton, CreditBox, CreditContainer, Header, LearnMoreButton, ModalContent, ModalWrapper, Tab, Tabs, ToggleContainer, ToggleSwitch } from "./styles";
+import {
+  BottomPartContainer,
+  BottomPartTextContainer,
+  CloseButton,
+  CreditBox,
+  CreditContainer,
+  Header,
+  LearnMoreButton,
+  ModalContent,
+  ModalWrapper,
+  Tab,
+  Tabs,
+  ToggleContainer,
+  ToggleSwitch,
+} from './styles'
 
 export const Modal = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -10,7 +24,7 @@ export const Modal = ({ onClose }: { onClose: () => void }) => {
         </Header>
 
         <Tabs>
-          <Tab>Your Credits</Tab>
+          <Tab>Status</Tab>
           <Tab>Dashboard</Tab>
         </Tabs>
 
@@ -27,11 +41,15 @@ export const Modal = ({ onClose }: { onClose: () => void }) => {
           <span>Efficiency Mode</span>
           <ToggleSwitch />
         </ToggleContainer>
+        <BottomPartContainer>
+          <BottomPartTextContainer>
+            <p>Learn how to use your credits</p>
+          </BottomPartTextContainer>
 
-        <p>Learn how to use your credits</p>
-        <LearnMoreButton>Learn More</LearnMoreButton>
+          <LearnMoreButton>Learn More</LearnMoreButton>
+        </BottomPartContainer>
       </ModalContent>
     </ModalWrapper>
   )
 }
-export default Modal;
+export default Modal

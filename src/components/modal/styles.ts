@@ -16,13 +16,14 @@ export const ModalContent = styled.div`
   background: #141414;
   padding: 24px;
   border-radius: 16px;
-  width: 320px;
+  width: 307px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   color: white;
   display: flex;
   flex-direction: column;
   gap: 16px;
-`;
+  height: 337px;
+`
 
 export const Header = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ export const Header = styled.div`
   align-items: center;
   font-size: 18px;
   font-weight: bold;
-`;
+`
 
 export const CloseButton = styled.button`
   background: none;
@@ -38,12 +39,12 @@ export const CloseButton = styled.button`
   color: white;
   font-size: 20px;
   cursor: pointer;
-`;
+`
 
 export const Tabs = styled.div`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export const Tab = styled.button`
   flex: 1;
@@ -54,13 +55,13 @@ export const Tab = styled.button`
   border: none;
   cursor: pointer;
   font-weight: bold;
-`;
+`
 
 export const CreditContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 12px;
-`;
+`
 
 export const CreditBox = styled.div`
   flex: 1;
@@ -70,7 +71,7 @@ export const CreditBox = styled.div`
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-`;
+`
 
 export const ToggleContainer = styled.div`
   display: flex;
@@ -79,9 +80,9 @@ export const ToggleContainer = styled.div`
   background: #222;
   padding: 12px;
   border-radius: 8px;
-`;
+`
 
-export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
+export const ToggleSwitch = styled.input.attrs({ type: 'checkbox' })`
   width: 40px;
   height: 20px;
   appearance: none;
@@ -89,13 +90,13 @@ export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
   border-radius: 12px;
   position: relative;
   cursor: pointer;
-  
+
   &:checked {
     background: #4caf50;
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 18px;
     height: 18px;
@@ -109,14 +110,31 @@ export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
   &:checked::before {
     left: 20px;
   }
-`;
+`
 export const LearnMoreButton = styled.button`
-background: white;
-color: black;
-padding: 10px;
-border-radius: 8px;
-border: none;
-cursor: pointer;
-font-weight: bold;
-width: 100%;
-`;
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+`
+
+export const BottomPartContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`
+
+export const BottomPartText = styled.p`
+  display: flex;
+  width: 50%;
+`
+
+export const BottomPartTextContainer = styled.div`
+  display: flex;
+  width: 50%;
+`
