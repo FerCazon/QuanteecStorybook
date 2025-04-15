@@ -1,18 +1,14 @@
 import {
-  BottomPartContainer,
-  BottomPartTextContainer,
   CloseButton,
-  CreditBox,
-  CreditContainer,
   Header,
-  LearnMoreButton,
   ModalContent,
   ModalWrapper,
+  SlideContainer,
   Tab,
   Tabs,
-  ToggleContainer,
-  ToggleSwitch,
 } from './styles'
+
+import { StatusSlider } from './Status/StatusSlider'
 
 export const Modal = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -27,27 +23,9 @@ export const Modal = ({ onClose }: { onClose: () => void }) => {
           <Tab>Status</Tab>
           <Tab>Dashboard</Tab>
         </Tabs>
-
-        <CreditContainer>
-          <CreditBox>
-            22 <br /> Tokens
-          </CreditBox>
-          <CreditBox>
-            2500 <br /> Credits
-          </CreditBox>
-        </CreditContainer>
-
-        <ToggleContainer>
-          <span>Efficiency Mode</span>
-          <ToggleSwitch />
-        </ToggleContainer>
-        <BottomPartContainer>
-          <BottomPartTextContainer>
-            <p>Learn how to use your credits</p>
-          </BottomPartTextContainer>
-
-          <LearnMoreButton>Learn More</LearnMoreButton>
-        </BottomPartContainer>
+        <SlideContainer>
+          <StatusSlider />
+        </SlideContainer>
       </ModalContent>
     </ModalWrapper>
   )

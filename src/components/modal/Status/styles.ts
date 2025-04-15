@@ -1,60 +1,9 @@
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ModalContent = styled.div`
-  background: #141414;
-  padding: 24px;
-  border-radius: 16px;
-  width: 307px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  color: white;
+export const StatusSliderContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 337px;
-`
-
-export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-`
-
-export const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-`
-
-export const Tabs = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-export const Tab = styled.button`
-  flex: 1;
-  padding: 10px;
-  background: #333;
-  color: white;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
 `
 
 export const CreditContainer = styled.div`
@@ -137,9 +86,4 @@ export const BottomPartText = styled.p`
 export const BottomPartTextContainer = styled.div`
   display: flex;
   width: 50%;
-`
-
-export const SlideContainer = styled.div`
-  display: flex;
-  justify-content: center;
 `
