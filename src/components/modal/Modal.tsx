@@ -8,14 +8,28 @@ import {
   Tabs,
 } from "./styles";
 
-import { StatusSlider } from "./Status/StatusSlider";
-import { useState } from "react";
-import DashboardSlider from "./Dashboard/DashboardSlider";
+import DashboardSlider from './Dashboard/DashboardSlider'
+import type { DashboardSliderProps } from './Dashboard/types'
+import { StatusSlider } from './Status/StatusSlider'
+import type { StatusSliderProps } from './Status/types'
+import { useState } from 'react'
 
-export const Modal = ({ onClose }: { onClose: () => void }) => {
-  const [activeSection, setActiveSection] = useState<"status" | "dashboard">(
-    "status"
-  );
+export interface ModalProps {
+  onClose: () => void
+  statusProps?: StatusSliderProps
+  dashboardProps?: DashboardSliderProps
+  defaultSection?: 'status' | 'dashboard'
+}
+
+export const Modal = ({
+  onClose,
+  statusProps,
+  dashboardProps,
+  defaultSection = 'status',
+}: ModalProps) => {
+  const [activeSection, setActiveSection] = useState<'status' | 'dashboard'>(
+    defaultSection
+  )
 
   return (
     <ModalWrapper>
@@ -27,24 +41,28 @@ export const Modal = ({ onClose }: { onClose: () => void }) => {
 
         <Tabs>
           <Tab
-            onClick={() => setActiveSection("status")}
-            $active={activeSection === "status"}
+            onClick={() => setActiveSection('status')}
+            $active={activeSection === 'status'}
           >
             Status
           </Tab>
           <Tab
-            onClick={() => setActiveSection("dashboard")}
-            $active={activeSection === "dashboard"}
+            onClick={() => setActiveSection('dashboard')}
+            $active={activeSection === 'dashboard'}
           >
             Dashboard
           </Tab>
         </Tabs>
+
         <SlideContainer>
-          {activeSection === "status" && <StatusSlider />}
-          {activeSection === "dashboard" && <DashboardSlider />}
+          {activeSection === 'status' && <StatusSlider {...statusProps} />}
+          {activeSection === 'dashboard' && (
+            <DashboardSlider {...dashboardProps} />
+          )}
         </SlideContainer>
       </ModalContent>
     </ModalWrapper>
-  );
-};
+  )
+}
+
 export default Modal;

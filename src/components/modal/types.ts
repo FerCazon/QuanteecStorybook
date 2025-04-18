@@ -1,4 +1,9 @@
+import { DashboardSliderProps } from './Dashboard/types'
+import { StatusSliderProps } from './Status/types'
 
 export interface ModalProps {
-text?: string;
+  onClose: () => void
+  statusProps?: StatusSliderProps
+  dashboardProps?: DashboardSliderProps
+  defaultSection?: 'status' | 'dashboard'
 }

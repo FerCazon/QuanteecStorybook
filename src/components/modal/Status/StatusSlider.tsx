@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   BottomContainer,
   ClaimButton,
@@ -26,13 +25,45 @@ import {
   TextContainer,
   TextContainerBottom,
   TopContainer,
-} from "./styles";
+} from './styles'
+import { StatusSliderProps, TierLevel } from './types'
 
-export const StatusSlider = () => {
-  const [switchActive, setSwitchActive] = useState(false);
-  const qoinsNumber = 102;
-  const progressBar: number = 100;
-  const isClaimEnabled = progressBar === 100;
+import { useState } from 'react'
+
+const tierMap: Record<
+  TierLevel,
+  { label: string; dots: number; icon: string }
+> = {
+  inactive: { label: 'Inactive', dots: 0, icon: 'Inactive' },
+  lite: { label: 'Lite', dots: 1, icon: 'Check' },
+  core: { label: 'Core', dots: 2, icon: 'Core' },
+  plus: { label: 'Plus', dots: 3, icon: 'Plus' },
+  pro: { label: 'Pro', dots: 4, icon: 'Pro' },
+  elite: { label: 'Elite', dots: 5, icon: 'Elite' },
+  turbo: { label: 'Turbo', dots: 6, icon: 'Turbo' },
+}
+
+export const StatusSlider = ({
+  qoinsNumber = 102,
+  progressBar = 100,
+  showDots = true,
+  bottomText = 'Start being part of something new',
+  radioLabel = 'Stream Boost',
+  learnMoreText = 'Learn More',
+  claimText = 'Claim Qoins',
+  qoinsLabel = 'Qoins Earned',
+  nextGenText = 'Next Quoin gen',
+  defaultSwitchActive = false,
+  tierLevel = 'lite',
+  forceClaimEnabled,
+}: StatusSliderProps) => {
+  const [switchActive, setSwitchActive] = useState(defaultSwitchActive)
+  const isClaimEnabled =
+    typeof forceClaimEnabled === 'boolean'
+      ? forceClaimEnabled
+      : progressBar === 100
+
+  const tier = tierMap[tierLevel as TierLevel]
   return (
     <StatusSliderContainer>
       <TopContainer>
@@ -47,30 +78,35 @@ export const StatusSlider = () => {
                 height={18}
               />
             </QoinsNumTopContainer>
-            Qoins Earned
+            {qoinsLabel}
           </QoinsNumContainer>
-          <ClaimButton disabled={!isClaimEnabled}>Claim Qoins</ClaimButton>
+          <ClaimButton disabled={!isClaimEnabled}>{claimText}</ClaimButton>
         </QoinsContainer>
+
         <GraphicsContainer>
           <LeftGraphicsContainer>
             <LiteTitle>
               <img
-                src="/images/icons/Check.png"
-                alt="check"
+                src={`/images/icons/${tier.icon}.png`}
+                alt={tier.label}
                 width={15}
                 height={15}
               />
-              Lite
+              {tier.label}
             </LiteTitle>
-            <DotColumn>
-              {[...Array(6)].map((_, i) => (
-                <Dot key={i} active={i === 0} />
-              ))}
-            </DotColumn>
+
+            {showDots && (
+              <DotColumn>
+                {[...Array(6)].map((_, i) => (
+                  <Dot key={i} active={i < tier.dots} />
+                ))}
+              </DotColumn>
+            )}
           </LeftGraphicsContainer>
+
           <RightGraphicsContainer>
             <ProgressTextContainer>
-              Next Quoin gen <PercentageText>{progressBar}%</PercentageText>
+              {nextGenText} <PercentageText>{progressBar}%</PercentageText>
             </ProgressTextContainer>
             <ProgressBarBackground>
               <ProgressBarFill style={{ width: `${progressBar}%` }} />
@@ -106,7 +142,7 @@ export const StatusSlider = () => {
               </defs>
             </svg>
           </RadioIcon>
-          <TextContainer>Stream Boost</TextContainer>
+          <TextContainer>{radioLabel}</TextContainer>
         </LeftMidContainer>
         <SwitchWrapper
           active={switchActive}
@@ -115,12 +151,11 @@ export const StatusSlider = () => {
           <SwitchDot active={switchActive} />
         </SwitchWrapper>
       </MidContainer>
+
       <BottomContainer>
-        <TextContainerBottom>
-          Start being part of something new
-        </TextContainerBottom>
-        <LearnMoreButton>Learn More</LearnMoreButton>
+        <TextContainerBottom>{bottomText}</TextContainerBottom>
+        <LearnMoreButton>{learnMoreText}</LearnMoreButton>
       </BottomContainer>
     </StatusSliderContainer>
-  );
-};
+  )
+}

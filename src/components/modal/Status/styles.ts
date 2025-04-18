@@ -60,21 +60,38 @@ export const QoinsNumTopContainer = styled.div`
 `;
 export const ClaimButton = styled.button`
   all: unset;
-  padding: 12px;
-  width: 90px;
-  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+
+  padding: 12px 18px;
+  min-width: 120px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
-  border-radius: 7.27px;
-  background: ${({ disabled }) =>
-    disabled
-      ? "rgba(255, 255, 255, 0.1)"
-      : "repeating-linear-gradient(135deg, #2F90B0, #2F90B0 10px, #2F90B080 10px, #2F90B080 20px)"};
-  color: ${({ disabled }) =>
-    disabled ? "rgba(255, 255, 255, 0.4)" : "#ffffff"};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  border-radius: 30px;
+  color: white;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: all 0.3s ease;
-`;
+  background-color: ${({ disabled }) => (disabled ? '#444' : '#2F90B0')};
+  box-shadow: ${({ disabled }) =>
+    disabled ? 'none' : '0 2px 8px rgba(47, 144, 176, 0.4)'};
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: ${({ disabled }) => (disabled ? 0 : 0.3)};
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='100%' viewBox='0 0 60 40'><polygon fill='white' fill-opacity='0.3' points='0,0 20,20 0,40 20,40 40,20 20,0'/></svg>");
+    background-repeat: repeat-x;
+    background-size: 60px 100%;
+    transform: scaleX(-1);
+  }
+`
+
+
+
+
 export const QoinsNum = styled.div`
   font-size: 18.5px;
   font-weight: 700;
