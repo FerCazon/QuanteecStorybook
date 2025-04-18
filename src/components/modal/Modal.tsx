@@ -6,28 +6,45 @@ import {
   SlideContainer,
   Tab,
   Tabs,
-} from './styles'
+} from "./styles";
 
-import { StatusSlider } from './Status/StatusSlider'
+import { StatusSlider } from "./Status/StatusSlider";
+import { useState } from "react";
+import DashboardSlider from "./Dashboard/DashboardSlider";
 
 export const Modal = ({ onClose }: { onClose: () => void }) => {
+  const [activeSection, setActiveSection] = useState<"status" | "dashboard">(
+    "status"
+  );
+
   return (
     <ModalWrapper>
       <ModalContent>
         <Header>
-          <span>GREEN SAVER</span>
-          <CloseButton onClick={onClose}>×</CloseButton>
+          <span>BOOST PANEL</span>
+          <CloseButton onClick={onClose} />
         </Header>
 
         <Tabs>
-          <Tab>Status</Tab>
-          <Tab>Dashboard</Tab>
+          <Tab
+            onClick={() => setActiveSection("status")}
+            $active={activeSection === "status"}
+          >
+            Status
+          </Tab>
+          <Tab
+            onClick={() => setActiveSection("dashboard")}
+            $active={activeSection === "dashboard"}
+          >
+            Dashboard
+          </Tab>
         </Tabs>
         <SlideContainer>
-          <StatusSlider />
+          {activeSection === "status" && <StatusSlider />}
+          {activeSection === "dashboard" && <DashboardSlider />}
         </SlideContainer>
       </ModalContent>
     </ModalWrapper>
-  )
-}
-export default Modal
+  );
+};
+export default Modal;
