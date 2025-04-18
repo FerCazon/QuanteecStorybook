@@ -5,8 +5,9 @@ import type { ModalProps } from '../components/modal/Modal';
 import React from 'react';
 
 type StoryArgs = ModalProps & {
-  tierLevel?: 'inactive' | 'lite' | 'core' | 'plus' | 'pro' | 'elite' | 'turbo';
-};
+  tierLevel?: 'inactive' | 'lite' | 'core' | 'plus' | 'pro' | 'elite' | 'turbo'
+  progressBar?: number
+}
 
 const meta: Meta<StoryArgs> = {
   title: 'Components/Modal',
@@ -20,25 +21,25 @@ const meta: Meta<StoryArgs> = {
       control: { type: 'select' },
       options: ['inactive', 'lite', 'core', 'plus', 'pro', 'elite', 'turbo'],
     },
-    dashboardProps: {
-      control: 'object',
+    progressBar: {
+      control: { type: 'range', min: 0, max: 100, step: 1 },
     },
     defaultSection: {
-      table: {
-        disable: true,
-      },
-    }
+      table: { disable: true },
+    },
+    onClose: { action: 'closed' },
   },
-};
-export default meta;
-type Story = StoryObj<StoryArgs>;
+}
+
+export default meta
+type Story = StoryObj<StoryArgs>
 
 export const Default: Story = {
   args: {
     tierLevel: 'lite',
+    progressBar: 75,
     statusProps: {
       qoinsNumber: 120,
-      progressBar: 75,
       bottomText: 'Start being part of something new',
       radioLabel: 'Stream Boost',
       learnMoreText: 'Learn More',
@@ -55,17 +56,19 @@ export const Default: Story = {
     },
   },
   render: (args) => {
-    const { tierLevel, ...rest } = args;
+    const { tierLevel, progressBar, statusProps, ...rest } = args
+
     return (
       <div style={{ width: '70vw', height: '60vh', overflow: 'auto' }}>
         <Modal
           {...rest}
           statusProps={{
-            ...args.statusProps,
+            ...statusProps,
             tierLevel: tierLevel ?? 'lite',
+            progressBar: progressBar ?? 0,
           }}
         />
       </div>
-    );
+    )
   },
-};
+}
