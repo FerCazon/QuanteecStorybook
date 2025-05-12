@@ -40,24 +40,25 @@ export const QoinsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
-`;
+`
 export const GraphicsContainer = styled.div`
   height: 26px;
-  padding: 0 15px;
+  padding: 0 15px 15px 15px;
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export const QoinsNumContainer = styled.div`
   font-size: 12px;
   font-weight: 500;
-`;
+`
 
 export const QoinsNumTopContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 7px;
-`;
+  font-size: 22px;
+`
 export const ClaimButton = styled.button`
   all: unset;
   position: relative;
@@ -89,44 +90,41 @@ export const ClaimButton = styled.button`
   }
 `
 
-
-
-
 export const QoinsNum = styled.div`
-  font-size: 18.5px;
+  font-size: 36px;
   font-weight: 700;
-`;
+`
 
 export const DotColumn = styled.div`
   display: flex;
   flex-direction: row;
   gap: 3px;
-`;
+`
 
 export const Dot = styled.div<{ active: boolean }>`
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background-color: ${({ active }) =>
-    active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};
+    active ? '#2F90B0' : 'rgba(255, 255, 255, 0.1)'};
   transition: background-color 0.3s ease;
-`;
+`
 
 export const LiteTitle = styled.div`
   display: flex;
   align-items: center;
   gap: 2px;
-  font-size: 11px;
+  font-size: 22px;
   font-weight: 500;
-  font-family: "Inter", sans-serif;
-`;
+  font-family: 'Inter', sans-serif;
+`
 
 export const LeftGraphicsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
   color: rgba(255, 255, 255, 0.5);
-`;
+`
 
 export const RightGraphicsContainer = styled.div`
   display: flex;
