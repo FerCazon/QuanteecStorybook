@@ -107,7 +107,7 @@ export const StatusSlider = ({
           <TextContainer>{radioLabel}</TextContainer>
         </LeftMidContainer>
         <SwitchContainer>
-          <TextContainer style={{ fontWeight: 700 }}>
+          <TextContainer style={{ fontWeight: 600 }}>
             {switchActive ? "ON" : "OFF"}
           </TextContainer>
           <SwitchWrapper
