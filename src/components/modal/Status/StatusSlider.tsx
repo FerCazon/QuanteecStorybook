@@ -17,7 +17,6 @@ import {
   QoinsNum,
   QoinsNumContainer,
   QoinsNumTopContainer,
-  // RadioIcon,
   RightGraphicsContainer,
   StatusSliderContainer,
   SwitchDot,
@@ -34,14 +33,14 @@ const tierMap: Record<
   TierLevel,
   { label: string; dots: number; icon: string }
 > = {
-  inactive: { label: "Inactive", dots: 0, icon: "Inactive" },
-  lite: { label: "Lite", dots: 1, icon: "Check" },
-  core: { label: "Core", dots: 2, icon: "Core" },
-  plus: { label: "Plus", dots: 3, icon: "Plus" },
-  pro: { label: "Pro", dots: 4, icon: "Pro" },
-  elite: { label: "Elite", dots: 5, icon: "Elite" },
-  turbo: { label: "Turbo", dots: 6, icon: "Turbo" },
-};
+  inactive: { label: 'Inactive', dots: 0, icon: 'Inactive' },
+  lite: { label: 'G-1', dots: 1, icon: 'Check' },
+  core: { label: 'G-2', dots: 2, icon: 'Core' },
+  plus: { label: 'G-3', dots: 3, icon: 'Plus' },
+  pro: { label: 'G-4', dots: 4, icon: 'Pro' },
+  elite: { label: 'G-5', dots: 5, icon: 'Elite' },
+  turbo: { label: 'G-6', dots: 6, icon: 'Turbo' },
+}
 
 export const StatusSlider = ({
   qoinsNumber = 102,
