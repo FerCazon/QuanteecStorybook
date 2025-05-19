@@ -14,7 +14,7 @@ export const Card = styled.div`
   display: flex;
   width: 185.45px;
   height: 140px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -122,8 +122,8 @@ export const LiteTitle = styled.div`
 `;
 
 export const SwitchWrapper = styled.div<{ active: boolean }>`
-  width: 30px;
-  height: 15px;
+  width: 40.84px;
+  height: 22.69px;
   border-radius: 999px;
   background-color: ${({ active }) => (active ? "#3FB0FF" : "#555")};
   padding: 2px;
@@ -133,24 +133,25 @@ export const SwitchWrapper = styled.div<{ active: boolean }>`
 `;
 
 export const SwitchDot = styled.div<{ active: boolean }>`
-  width: 13px;
-  height: 13px;
+  width: 15.88px;
+  height: 15.88px;
   border-radius: 50%;
   background: white;
   top: 2px;
   left: 2px;
   transition: 0.3s ease;
   transform: ${({ active }) =>
-    active ? "translateX(15px)" : "translateX(2px)"};
+    active ? "translateX(21px)" : "translateX(3px)"};
 `;
 
 export const RadioIcon = styled.div<{ active: boolean }>`
   svg {
     fill: ${({ active }) => (active ? "#3FB0FF" : "#555")};
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
   display: flex;
+  margin-right: 2px;
 `;
 
 export const LiteSwitchContainer = styled.div`
@@ -158,12 +159,14 @@ export const LiteSwitchContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3.94px;
+  margin-bottom: 14px;
 `;
 
 export const DotColumn = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 6px;
+  margin-left: 60px;
 `;
 
 export const Dot = styled.div<{ active: boolean }>`

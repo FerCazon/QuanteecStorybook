@@ -163,6 +163,12 @@ export const ProgressBarFill = styled.div`
   transition: width 0.3s ease;
 `;
 
+export const SwitchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
 export const SwitchWrapper = styled.div<{ active: boolean }>`
   width: 86.23px;
   height: 47.91px;

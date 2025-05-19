@@ -19,28 +19,17 @@ import {
   QoinsNumTopContainer,
   RightGraphicsContainer,
   StatusSliderContainer,
+  SwitchContainer,
   SwitchDot,
   SwitchWrapper,
   TextContainer,
   TextContainerBottom,
   TopContainer,
 } from "./styles";
-import { StatusSliderProps, TierLevel } from "./types";
+import { StatusSliderProps } from "./types";
+import { tierMap, TierLevel } from "../../common/tiers";
 
 import { useState } from "react";
-
-const tierMap: Record<
-  TierLevel,
-  { label: string; dots: number; icon: string }
-> = {
-  inactive: { label: 'Inactive', dots: 0, icon: 'Inactive' },
-  lite: { label: 'G-1', dots: 1, icon: 'Check' },
-  core: { label: 'G-2', dots: 2, icon: 'Core' },
-  plus: { label: 'G-3', dots: 3, icon: 'Plus' },
-  pro: { label: 'G-4', dots: 4, icon: 'Pro' },
-  elite: { label: 'G-5', dots: 5, icon: 'Elite' },
-  turbo: { label: 'G-6', dots: 6, icon: 'Turbo' },
-}
 
 export const StatusSlider = ({
   qoinsNumber = 102,
@@ -88,10 +77,10 @@ export const StatusSlider = ({
               <img
                 src={`/images/icons/${tier.icon}.png`}
                 alt={tier.label}
-                width={23}
-                height={23}
+                width={30}
+                height={30}
               />
-              {tier.label}
+              Speed
             </LiteTitle>
 
             {showDots && (
@@ -117,12 +106,17 @@ export const StatusSlider = ({
         <LeftMidContainer>
           <TextContainer>{radioLabel}</TextContainer>
         </LeftMidContainer>
-        <SwitchWrapper
-          active={switchActive}
-          onClick={() => setSwitchActive(!switchActive)}
-        >
-          <SwitchDot active={switchActive} />
-        </SwitchWrapper>
+        <SwitchContainer>
+          <TextContainer style={{ fontWeight: 700 }}>
+            {switchActive ? "ON" : "OFF"}
+          </TextContainer>
+          <SwitchWrapper
+            active={switchActive}
+            onClick={() => setSwitchActive(!switchActive)}
+          >
+            <SwitchDot active={switchActive} />
+          </SwitchWrapper>
+        </SwitchContainer>
       </MidContainer>
 
       <BottomContainer>

@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Modal } from "../components/modal/Modal";
 import type { ModalProps } from "../components/modal/Modal";
-import React from "react";
+import { TierLevel } from "../components/common/tiers";
 
 type StoryArgs = ModalProps & {
-  tierLevel?: "inactive" | "lite" | "core" | "plus" | "pro" | "elite" | "turbo";
   progressBar?: number;
+  tierLevel?: TierLevel;
 };
 
 const meta: Meta<StoryArgs> = {
@@ -18,8 +18,18 @@ const meta: Meta<StoryArgs> = {
   },
   argTypes: {
     tierLevel: {
+      name: "Dashboard Tier (G-n)",
       control: { type: "select" },
-      options: ["inactive", "lite", "core", "plus", "pro", "elite", "turbo"],
+      options: [
+        "inactive",
+        "core",
+        "lite",
+        "plus",
+        "pro",
+        "elite",
+        "turbo",
+      ] as TierLevel[],
+      defaultValue: "lite",
     },
     progressBar: {
       control: { type: "range", min: 0, max: 100, step: 1 },
@@ -51,12 +61,11 @@ export const Default: Story = {
       contributorsLabel: "Contributors",
       dataLabel: "Data",
       energyLabel: "Energy",
-      liteLabel: "Efficiency Mode",
-      boostLabel: "Boost",
     },
   },
   render: (args) => {
-    const { tierLevel, progressBar, statusProps, ...rest } = args;
+    const { tierLevel, progressBar, statusProps, dashboardProps, ...rest } =
+      args;
 
     return (
       <div style={{ width: "70vw", height: "60vh", overflow: "auto" }}>
@@ -66,6 +75,10 @@ export const Default: Story = {
             ...statusProps,
             tierLevel: tierLevel ?? "lite",
             progressBar: progressBar ?? 0,
+          }}
+          dashboardProps={{
+            ...dashboardProps,
+            tierLevel: tierLevel,
           }}
         />
       </div>

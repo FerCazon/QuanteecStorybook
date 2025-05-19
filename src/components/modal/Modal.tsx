@@ -8,28 +8,29 @@ import {
   Tabs,
 } from "./styles";
 
-import DashboardSlider from './Dashboard/DashboardSlider'
-import type { DashboardSliderProps } from './Dashboard/types'
-import { StatusSlider } from './Status/StatusSlider'
-import type { StatusSliderProps } from './Status/types'
-import { useState } from 'react'
+import DashboardSlider from "./Dashboard/DashboardSlider";
+import type { DashboardSliderProps } from "./Dashboard/types";
+import { StatusSlider } from "./Status/StatusSlider";
+import type { StatusSliderProps } from "./Status/types";
+import { useState } from "react";
 
 export interface ModalProps {
-  onClose: () => void
-  statusProps?: StatusSliderProps
-  dashboardProps?: DashboardSliderProps
-  defaultSection?: 'status' | 'dashboard'
+  onClose: () => void;
+  statusProps?: StatusSliderProps;
+  dashboardProps?: DashboardSliderProps;
+  defaultSection?: "status" | "dashboard";
 }
 
 export const Modal = ({
   onClose,
   statusProps,
   dashboardProps,
-  defaultSection = 'status',
+  defaultSection = "status",
 }: ModalProps) => {
-  const [activeSection, setActiveSection] = useState<'status' | 'dashboard'>(
+  const [activeSection, setActiveSection] = useState<"status" | "dashboard">(
     defaultSection
-  )
+  );
+  const [dashboardSwitchOn, setDashboardSwitchOn] = useState(false);
 
   return (
     <ModalWrapper>
@@ -41,28 +42,32 @@ export const Modal = ({
 
         <Tabs>
           <Tab
-            onClick={() => setActiveSection('status')}
-            $active={activeSection === 'status'}
+            onClick={() => setActiveSection("status")}
+            $active={activeSection === "status"}
           >
             Status
           </Tab>
           <Tab
-            onClick={() => setActiveSection('dashboard')}
-            $active={activeSection === 'dashboard'}
+            onClick={() => setActiveSection("dashboard")}
+            $active={activeSection === "dashboard"}
           >
             Dashboard
           </Tab>
         </Tabs>
 
         <SlideContainer>
-          {activeSection === 'status' && <StatusSlider {...statusProps} />}
-          {activeSection === 'dashboard' && (
-            <DashboardSlider {...dashboardProps} />
+          {activeSection === "status" && <StatusSlider {...statusProps} />}
+          {activeSection === "dashboard" && (
+            <DashboardSlider
+              {...dashboardProps}
+              switchOn={dashboardSwitchOn}
+              onSwitchToggle={() => setDashboardSwitchOn((v) => !v)}
+            />
           )}
         </SlideContainer>
       </ModalContent>
     </ModalWrapper>
-  )
-}
+  );
+};
 
 export default Modal;
