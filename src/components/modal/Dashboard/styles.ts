@@ -2,30 +2,26 @@ import styled from "styled-components";
 
 export const DashboardWrapper = styled.div`
   display: flex;
-  gap: 10.55px;
-  max-width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 14.39px;
 `;
 
 export const Card = styled.div`
   background-color: #1f1f1f;
-  border-radius: 16.97px;
-  padding: 14.55px;
-  gap: 24.25px;
+  border-radius: 33.57px;
+  padding: 28.7px;
   color: white;
   display: flex;
-  max-width: 115px;
-  max-height: 88px;
-  width: 115px;
-  height: 77px;
-  justify-content: space-between;
+  width: 185.45px;
+  height: 140px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-bottom: 28px;
 `;
 
 export const ConnectedContainer = styled.div`
@@ -33,7 +29,7 @@ export const ConnectedContainer = styled.div`
 `;
 
 export const Subtitle = styled.p`
-  font-size: 10px;
+  font-size: 19.18px;
   font-weight: 500;
   font-family: "Inter", sans-serif;
   opacity: 50%;
@@ -43,26 +39,27 @@ export const Subtitle = styled.p`
 export const Label = styled.div`
   display: flex;
   align-items: center;
-  font-size: 11px;
+  font-size: 21.58px;
   font-weight: 500;
   font-family: "Inter", sans-serif;
 `;
 
 export const Value = styled.div`
-  font-size: 24.25px;
+  font-size: 47.95px;
   font-weight: bold;
   font-weight: 700;
   font-family: "Inter", sans-serif;
 `;
 
 export const ProgressBar = styled.div`
-  height: 60px;
-  width: 12px;
+  height: 117px;
+  width: 31.17px;
   border-radius: 20px;
   background-color: #555;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  margin-left: 34.06px;
 `;
 
 export const ProgressFill = styled.div<{ height: number; color: string }>`
@@ -109,10 +106,10 @@ export const LeftContainer = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   align-items: center;
-  font-size: 11px;
+  font-size: 21.48px;
   font-weight: 500;
   font-family: "Inter", sans-serif;
-  gap: 2.08px;
+  margin-right: 4.8px;
 `;
 
 export const LiteTitle = styled.div`
@@ -170,8 +167,8 @@ export const DotColumn = styled.div`
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
-  width: 10px;
-  height: 10px;
+  width: 16.14px;
+  height: 16.14px;
   border-radius: 50%;
   background-color: ${({ active }) =>
     active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};

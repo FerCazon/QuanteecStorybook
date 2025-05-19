@@ -17,23 +17,23 @@ import {
   SwitchDot,
   SwitchWrapper,
   Value,
-} from './styles'
+} from "./styles";
 
-import { DashboardSliderProps } from './types'
-import { useState } from 'react'
+import { DashboardSliderProps } from "./types";
+import { useState } from "react";
 
 const DashboardSlider = ({
   connected = 28,
   sharedData = 80,
   energySaved = 45,
   defaultRadioOn = false,
-  contributorsLabel = 'Contributors',
-  dataLabel = 'Data',
-  energyLabel = 'Energy',
-  liteLabel = 'Lite',
-  boostLabel = 'Boost',
+  contributorsLabel = "Contributors",
+  dataLabel = "Data",
+  energyLabel = "Energy",
+  liteLabel = "Lite",
+  boostLabel = "Boost",
 }: DashboardSliderProps) => {
-  const [radioOn, setRadioOn] = useState(defaultRadioOn)
+  const [radioOn, setRadioOn] = useState(defaultRadioOn);
 
   return (
     <DashboardWrapper>
@@ -48,8 +48,8 @@ const DashboardSlider = ({
               <img
                 src="/images/icons/Contributors.png"
                 alt="contributors"
-                width={16}
-                height={10}
+                width={27}
+                height={17}
               />
             </ImageContainer>
             {contributorsLabel}
@@ -68,16 +68,16 @@ const DashboardSlider = ({
               <img
                 src="/images/icons/Data.png"
                 alt="data"
-                width={15}
-                height={15}
+                width={27}
+                height={27}
               />
             </ImageContainer>
             {dataLabel}
           </Label>
         </LeftContainer>
-        <ProgressBar>
+        {/* <ProgressBar>
           <ProgressFill color="#A1E659" height={(sharedData / 160) * 100} />
-        </ProgressBar>
+        </ProgressBar> */}
       </Card>
 
       <Card>
@@ -91,8 +91,8 @@ const DashboardSlider = ({
               <img
                 src="/images/icons/Charge.png"
                 alt="energy"
-                width={11}
-                height={15}
+                width={26}
+                height={26}
               />
             </ImageContainer>
             {energyLabel}
@@ -116,8 +116,7 @@ const DashboardSlider = ({
               {liteLabel}
             </LiteTitle>
             <LiteSwitchContainer>
-              <RadioIcon active={radioOn}>
-              </RadioIcon>
+              <RadioIcon active={radioOn}></RadioIcon>
               <SwitchWrapper
                 active={radioOn}
                 onClick={() => setRadioOn(!radioOn)}
@@ -127,20 +126,20 @@ const DashboardSlider = ({
             </LiteSwitchContainer>
           </InfoContainer>
           <ImageContainer>
-            <img src="/images/icons/Boost.png" alt="" />
+            <img src="/images/icons/Boost.png" alt="" width={24} height={24} />
             {boostLabel}
           </ImageContainer>
         </LeftContainer>
         <DotColumn>
           {[...Array(6)].map((_, i) => {
-            const dotIndex = 5 - i
-            const isActive = radioOn ? true : dotIndex === 0
-            return <Dot key={i} active={isActive} />
+            const dotIndex = 5 - i;
+            const isActive = radioOn ? true : dotIndex === 0;
+            return <Dot key={i} active={isActive} />;
           })}
         </DotColumn>
       </Card>
     </DashboardWrapper>
-  )
-}
+  );
+};
 
-export default DashboardSlider
+export default DashboardSlider;

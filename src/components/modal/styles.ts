@@ -10,6 +10,7 @@ export const ModalWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
   background: #0d0d0d;
   display: flex;
   justify-content: center;
@@ -18,25 +19,23 @@ export const ModalWrapper = styled.div`
 
 export const ModalContent = styled.div`
   background: #00000099;
-  padding: 35.16px 34.7px 34.85px;
-  border-radius: 29.09px;
-  width: 307.7054748535156px;
+  padding: 69.5px 68.5px;
+  border-radius: 57.49px;
+  width: 500px;
+  min-height: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   color: white;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
-  height: 337.04px;
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 20.35px;
+  font-size: 40px;
   font-weight: 700;
   font-family: "Inter", sans-serif;
-  padding: 4.6px;
+  margin-bottom: 23.52px;
 `;
 
 export const CloseButton = styled.button`
@@ -44,8 +43,8 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 23.98px;
-  height: 23.98px;
+  width: 47px;
+  height: 47px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -55,8 +54,8 @@ export const CloseButton = styled.button`
   &::after {
     content: "";
     position: absolute;
-    width: 14.76px;
-    height: 2.3px;
+    width: 25px;
+    height: 3.3px;
     border: white;
     background-color: white;
     top: 50%;
@@ -78,22 +77,23 @@ export const Tabs = styled.div`
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
+  margin-bottom: 18.63px;
 `;
 
 export const Tab = styled.button<TabProps>`
   all: unset;
   flex: 1;
   text-align: center;
-  padding: 10px;
+  padding: 23.95px 0;
+  max-width: 228px;
   color: white;
   cursor: pointer;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 14.55px;
+  font-size: 28.74px;
   background: transparent;
 
-  border-bottom: ${({ $active }) =>
-    $active ? "1.22px solid #2F90B0" : "none"};
+  border-bottom: ${({ $active }) => ($active ? "3px solid #2F90B0" : "none")};
 `;
 
 export const CreditContainer = styled.div`
@@ -180,5 +180,6 @@ export const BottomPartTextContainer = styled.div`
 
 export const SlideContainer = styled.div`
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
 `;
