@@ -1,9 +1,7 @@
-import "./App.css";
-
-import reactLogo from "./assets/react.svg";
-import { useState } from "react";
-import viteLogo from "/vite.svg";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
+import reactLogo from './assets/react.svg'
+import { useState } from 'react'
+import viteLogo from '/vite.svg'
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -11,10 +9,10 @@ export const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Inter', sans-serif;
   }
-`;
+`
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -39,7 +37,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
