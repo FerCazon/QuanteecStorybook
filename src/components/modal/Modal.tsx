@@ -36,28 +36,28 @@ export const Modal = ({
     <ModalWrapper>
       <ModalContent>
         <Header>
-          <span>BOOST PANEL</span>
+          <span>StreamBoost</span>
           <CloseButton onClick={onClose} />
         </Header>
 
         <Tabs>
           <Tab
-            onClick={() => setActiveSection("status")}
-            $active={activeSection === "status"}
+            onClick={() => setActiveSection('status')}
+            $active={activeSection === 'status'}
           >
             Status
           </Tab>
           <Tab
-            onClick={() => setActiveSection("dashboard")}
-            $active={activeSection === "dashboard"}
+            onClick={() => setActiveSection('dashboard')}
+            $active={activeSection === 'dashboard'}
           >
             Dashboard
           </Tab>
         </Tabs>
 
         <SlideContainer>
-          {activeSection === "status" && <StatusSlider {...statusProps} />}
-          {activeSection === "dashboard" && (
+          {activeSection === 'status' && <StatusSlider {...statusProps} />}
+          {activeSection === 'dashboard' && (
             <DashboardSlider
               {...dashboardProps}
               switchOn={dashboardSwitchOn}
@@ -67,7 +67,7 @@ export const Modal = ({
         </SlideContainer>
       </ModalContent>
     </ModalWrapper>
-  );
+  )
 };
 
 export default Modal;
