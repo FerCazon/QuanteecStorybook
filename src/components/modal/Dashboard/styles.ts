@@ -18,6 +18,7 @@ export const Card = styled.div`
   align-items: center;
 `;
 
+
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
