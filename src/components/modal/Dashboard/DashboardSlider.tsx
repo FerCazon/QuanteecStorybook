@@ -1,5 +1,6 @@
 import {
   Card,
+  CardSpeed,
   DashboardWrapper,
   Dot,
   DotColumn,
@@ -7,6 +8,7 @@ import {
   InfoContainer,
   Label,
   LeftContainer,
+  LeftContainerSpeed,
   LiteSwitchContainer,
   LiteTitle,
   ProgressBar,
@@ -15,7 +17,9 @@ import {
   Subtitle,
   SwitchDot,
   SwitchWrapper,
+  TopLeftContainer,
   Value,
+  ValueSpeed,
 } from "./styles";
 
 import { DashboardSliderProps } from "./types";
@@ -99,20 +103,18 @@ const DashboardSlider = ({
         </ProgressBar>
       </Card>
 
-      <Card>
-        <LeftContainer>
-          <ImageContainer>
-            <img
-              src={`/images/icons/${tier.icon}.png`}
-              alt={tier.label}
-              width={35}
-              height={35}
-            />
-            <Value style={{ fontSize: 25.33, fontWeight: 700 }}>
-              {tier.label}
-            </Value>
-          </ImageContainer>
-          <InfoContainer>
+      <CardSpeed>
+        <LeftContainerSpeed>
+          <TopLeftContainer>
+            <ImageContainer>
+              <img
+                src={`/images/icons/${tier.icon}.png`}
+                alt={tier.label}
+                width={tier.icon === "Check" ? 30 : 35}
+                height={tier.icon === "Check" ? 30 : 35}
+              />
+              <ValueSpeed>{tier.label}</ValueSpeed>
+            </ImageContainer>
             <LiteSwitchContainer>
               <RadioIcon active={switchOn}>
                 <svg
@@ -145,7 +147,7 @@ const DashboardSlider = ({
                 <SwitchDot active={switchOn} />
               </SwitchWrapper>
             </LiteSwitchContainer>
-          </InfoContainer>
+          </TopLeftContainer>
           <LiteTitle>
             <img
               src="/images/icons/Boost.png"
@@ -155,13 +157,13 @@ const DashboardSlider = ({
             />
             Speed
           </LiteTitle>
-        </LeftContainer>
-        <DotColumn>
+        </LeftContainerSpeed>
+        <DotColumn $inactive={tierLevel === "inactive"}>
           {Array.from({ length: 6 }).map((_, i) => (
             <Dot key={i} active={switchOn && i < tier.dots} />
           ))}
         </DotColumn>
-      </Card>
+      </CardSpeed>
     </DashboardWrapper>
   );
 };

@@ -15,7 +15,7 @@ export interface TierData {
 
 export const tierMap: Record<TierLevel, TierData> = {
   inactive: { label: "Inactive", dots: 0, icon: "Inactive" },
-  core: { label: "G-1", dots: 1, icon: "Check" },
+  core: { label: "G-1", dots: 1, icon: "Check2" },
   lite: { label: "G-2", dots: 2, icon: "Core" },
   plus: { label: "G-3", dots: 3, icon: "Plus" },
   pro: { label: "G-4", dots: 4, icon: "Pro" },

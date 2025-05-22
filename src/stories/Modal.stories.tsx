@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Modal } from "../components/modal/Modal";
+import { action } from "@storybook/addon-actions";
 import type { ModalProps } from "../components/modal/Modal";
 import { TierLevel } from "../components/common/tiers";
 
 type StoryArgs = ModalProps & {
   progressBar?: number;
   tierLevel?: TierLevel;
+  switchOn: boolean;
+  onSwitchToggle: () => void;
 };
 
 const meta: Meta<StoryArgs> = {
@@ -48,6 +51,8 @@ export const Default: Story = {
   args: {
     tierLevel: "lite",
     progressBar: 75,
+    switchOn: false,
+    onSwitchToggle: action("dashboardSwitchToggle"),
     statusProps: {
       qoinsNumber: 120,
       bottomText: "Start being part of something new",
@@ -61,6 +66,8 @@ export const Default: Story = {
       contributorsLabel: "Contributors",
       dataLabel: "Data",
       energyLabel: "Energy",
+      switchOn: false,
+      onSwitchToggle: action("dashboardSwitchToggle"),
     },
   },
   render: (args) => {
@@ -79,6 +86,8 @@ export const Default: Story = {
           dashboardProps={{
             ...dashboardProps,
             tierLevel: tierLevel,
+            switchOn: args.switchOn,
+            onSwitchToggle: args.onSwitchToggle,
           }}
         />
       </div>

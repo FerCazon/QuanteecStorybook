@@ -51,6 +51,12 @@ export const Value = styled.div`
   font-family: "Inter", sans-serif;
 `;
 
+export const ValueSpeed = styled.div`
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+`;
+
 export const ProgressBar = styled.div`
   height: 117px;
   width: 31.17px;
@@ -110,6 +116,7 @@ export const ImageContainer = styled.div`
   font-weight: 500;
   font-family: "Inter", sans-serif;
   margin-right: 4.8px;
+  margin-bottom: 5px;
 `;
 
 export const LiteTitle = styled.div`
@@ -157,16 +164,14 @@ export const RadioIcon = styled.div<{ active: boolean }>`
 export const LiteSwitchContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 3.94px;
-  margin-bottom: 14px;
 `;
 
-export const DotColumn = styled.div`
+export const DotColumn = styled.div<{ $inactive?: boolean }>`
   display: flex;
   flex-direction: column-reverse;
   gap: 6px;
-  margin-left: 60px;
+  /* margin-left: ${({ $inactive }) => ($inactive ? "8px" : "60px")}; */
 `;
 
 export const Dot = styled.div<{ active: boolean }>`
@@ -176,4 +181,26 @@ export const Dot = styled.div<{ active: boolean }>`
   background-color: ${({ active }) =>
     active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};
   transition: background-color 0.3s ease;
+`;
+
+export const LeftContainerSpeed = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const CardSpeed = styled.div`
+  background-color: #1f1f1f;
+  border-radius: 33.57px;
+  padding: 28.7px;
+  color: white;
+  display: flex;
+  width: 185.45px;
+  height: 140px;
+  justify-content: space-between;
+`;
+
+export const TopLeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
