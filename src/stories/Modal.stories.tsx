@@ -4,12 +4,14 @@ import { Modal } from "../components/modal/Modal";
 import { action } from "@storybook/addon-actions";
 import type { ModalProps } from "../components/modal/Modal";
 import { TierLevel } from "../components/common/tiers";
+import type { Sponsor } from "../components/common/sponsors";
 
 type StoryArgs = ModalProps & {
   progressBar?: number;
   tierLevel?: TierLevel;
   switchOn: boolean;
   onSwitchToggle: () => void;
+  sponsor?: Sponsor;
 };
 
 const meta: Meta<StoryArgs> = {
@@ -39,6 +41,12 @@ const meta: Meta<StoryArgs> = {
     },
     defaultSection: {
       table: { disable: true },
+    },
+    sponsor: {
+      name: "Sponsor",
+      control: { type: "select" },
+      options: ["quanteec", "redbull"],
+      defaultValue: "quanteec",
     },
     onClose: { action: "closed" },
   },
@@ -82,6 +90,7 @@ export const Default: Story = {
             ...statusProps,
             tierLevel: tierLevel ?? "lite",
             progressBar: progressBar ?? 0,
+            sponsor: args.sponsor,
           }}
           dashboardProps={{
             ...dashboardProps,

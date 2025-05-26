@@ -28,6 +28,7 @@ import {
 } from "./styles";
 import { StatusSliderProps } from "./types";
 import { tierMap, TierLevel } from "../../common/tiers";
+import { sponsorColorMap } from "../../common/sponsors";
 
 import { useState } from "react";
 
@@ -44,11 +45,9 @@ export const StatusSlider = ({
   defaultSwitchActive = false,
   tierLevel = "lite",
   forceClaimEnabled,
+  sponsor = "quanteec",
 }: StatusSliderProps) => {
-  const sponsorColor = {
-    quanteec: "blue",
-    redbull: "red",
-  };
+  const iconColor = sponsorColorMap[sponsor];
   const [switchActive, setSwitchActive] = useState(defaultSwitchActive);
   const isClaimEnabled =
     typeof forceClaimEnabled === "boolean"
@@ -79,7 +78,7 @@ export const StatusSlider = ({
         <GraphicsContainer>
           <LeftGraphicsContainer>
             <LiteTitle>
-              <TierIcon width={30} height={30} color={sponsorColor.quanteec} />
+              <TierIcon width={30} height={30} color={iconColor} />
               Speed
             </LiteTitle>
 

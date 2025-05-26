@@ -1,0 +1,50 @@
+import React from "react";
+import { IconProps } from "./types";
+
+const Level5: React.FC<IconProps> = ({
+  width = 53,
+  height = 54,
+  color = "#2f90b0",
+  ...props
+}) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 53 54"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <circle opacity={0.2} cx={26.0167} cy={26.3314} r={20.5081} fill={color} />
+    <circle
+      cx={20.0367}
+      cy={32.4912}
+      r={4.3504}
+      transform="rotate(-45 20.0367 32.4912)"
+      fill={color}
+    />
+    <circle
+      cx={32.4185}
+      cy={32.4912}
+      r={4.3504}
+      transform="rotate(-45 32.4185 32.4912)"
+      fill={color}
+    />
+    <circle
+      cx={20.0367}
+      cy={20.1885}
+      r={4.3504}
+      transform="rotate(-45 20.0367 20.1885)"
+      fill={color}
+    />
+    <circle
+      cx={32.4185}
+      cy={20.1885}
+      r={4.3504}
+      transform="rotate(-45 32.4185 20.1885)"
+      fill={color}
+    />
+  </svg>
+);
+
+export default Level5;

@@ -1,10 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export interface IconProps extends React.SVGProps<SVGSVGElement> {
-  color?: string;
-}
-
-const ThreeCirclesIcon: React.FC<IconProps> = ({
+const Level3: React.FC<IconProps> = ({
   width = 21,
   height = 21,
   color = "#2f90b0",
@@ -42,6 +39,6 @@ const ThreeCirclesIcon: React.FC<IconProps> = ({
   </svg>
 );
 
-export default ThreeCirclesIcon;
+export default Level3;
 
 // #ee3c47
