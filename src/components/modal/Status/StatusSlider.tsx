@@ -26,37 +26,37 @@ import {
   TextContainerBottom,
   TopContainer,
 } from "./styles";
-import { StatusSliderProps } from "./types";
-import { tierMap, TierLevel } from "../../common/tiers";
+import { TierLevel, tierMap } from '../../common/tiers'
 
-import { useState } from "react";
+import { StatusSliderProps } from './types'
+import { useState } from 'react'
 
 export const StatusSlider = ({
   qoinsNumber = 102,
   progressBar = 100,
   showDots = true,
-  bottomText = "Start being part of something new",
-  radioLabel = "Stream Boost",
-  learnMoreText = "Learn More",
-  claimText = "Claim Qoins",
-  qoinsLabel = "Quoins Earned",
-  nextGenText = "Next Quoin gen",
+  bottomText = 'Start being part of something new',
+  radioLabel = 'Stream Boost',
+  learnMoreText = 'Learn More',
+  claimText = 'Claim Qoins',
+  qoinsLabel = 'Quoins Earned',
+  nextGenText = 'Next Quoin gen',
   defaultSwitchActive = false,
-  tierLevel = "lite",
+  tierLevel = 'lite',
   forceClaimEnabled,
 }: StatusSliderProps) => {
   const sponsorColor = {
-    quanteec: "blue",
-    redbull: "red",
-  };
-  const [switchActive, setSwitchActive] = useState(defaultSwitchActive);
+    quanteec: 'blue',
+    redbull: 'red',
+  }
+  const [switchActive, setSwitchActive] = useState(defaultSwitchActive)
   const isClaimEnabled =
-    typeof forceClaimEnabled === "boolean"
+    typeof forceClaimEnabled === 'boolean'
       ? forceClaimEnabled
-      : progressBar === 100;
+      : progressBar === 100
 
-  const tier = tierMap[tierLevel as TierLevel];
-  const TierIcon = tier.icon;
+  const tier = tierMap[tierLevel as TierLevel]
+  const TierIcon = tier.icon
   return (
     <StatusSliderContainer>
       <TopContainer>
@@ -108,7 +108,7 @@ export const StatusSlider = ({
         </LeftMidContainer>
         <SwitchContainer>
           <TextContainer style={{ fontWeight: 600 }}>
-            {switchActive ? "ON" : "OFF"}
+            {switchActive ? 'ON' : 'OFF'}
           </TextContainer>
           <SwitchWrapper
             active={switchActive}
@@ -124,5 +124,5 @@ export const StatusSlider = ({
         <LearnMoreButton>{learnMoreText}</LearnMoreButton>
       </BottomContainer>
     </StatusSliderContainer>
-  );
-};
+  )
+}
