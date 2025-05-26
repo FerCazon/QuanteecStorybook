@@ -1,3 +1,6 @@
+import { FunctionComponent, SVGProps } from "react";
+import ThreeCirclesIcon from "../svg/ThreeCirclesIcon";
+
 export type TierLevel =
   | "inactive"
   | "core"
@@ -10,15 +13,15 @@ export type TierLevel =
 export interface TierData {
   label: string;
   dots: number;
-  icon: string;
+  icon: FunctionComponent<SVGProps<SVGSVGElement>>;
 }
 
 export const tierMap: Record<TierLevel, TierData> = {
-  inactive: { label: "Inactive", dots: 0, icon: "Inactive" },
-  core: { label: "G-1", dots: 1, icon: "Check2" },
-  lite: { label: "G-2", dots: 2, icon: "Core" },
-  plus: { label: "G-3", dots: 3, icon: "Plus" },
-  pro: { label: "G-4", dots: 4, icon: "Pro" },
-  elite: { label: "G-5", dots: 5, icon: "Elite" },
-  turbo: { label: "G-6", dots: 6, icon: "Turbo" },
+  inactive: { label: "Inactive", dots: 0, icon: ThreeCirclesIcon },
+  core: { label: "G-1", dots: 1, icon: ThreeCirclesIcon },
+  lite: { label: "G-2", dots: 2, icon: ThreeCirclesIcon },
+  plus: { label: "G-3", dots: 3, icon: ThreeCirclesIcon },
+  pro: { label: "G-4", dots: 4, icon: ThreeCirclesIcon },
+  elite: { label: "G-5", dots: 5, icon: ThreeCirclesIcon },
+  turbo: { label: "G-6", dots: 6, icon: ThreeCirclesIcon },
 };

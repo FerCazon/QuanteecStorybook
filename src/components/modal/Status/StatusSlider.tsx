@@ -45,6 +45,10 @@ export const StatusSlider = ({
   tierLevel = "lite",
   forceClaimEnabled,
 }: StatusSliderProps) => {
+  const sponsorColor = {
+    quanteec: "blue",
+    redbull: "red",
+  };
   const [switchActive, setSwitchActive] = useState(defaultSwitchActive);
   const isClaimEnabled =
     typeof forceClaimEnabled === "boolean"
@@ -52,6 +56,7 @@ export const StatusSlider = ({
       : progressBar === 100;
 
   const tier = tierMap[tierLevel as TierLevel];
+  const TierIcon = tier.icon;
   return (
     <StatusSliderContainer>
       <TopContainer>
@@ -74,12 +79,7 @@ export const StatusSlider = ({
         <GraphicsContainer>
           <LeftGraphicsContainer>
             <LiteTitle>
-              <img
-                src={`/images/icons/${tier.icon}.png`}
-                alt={tier.label}
-                width={30}
-                height={30}
-              />
+              <TierIcon width={30} height={30} color={sponsorColor.quanteec} />
               Speed
             </LiteTitle>
 
