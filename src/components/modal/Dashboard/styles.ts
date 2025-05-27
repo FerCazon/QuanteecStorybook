@@ -129,7 +129,7 @@ export const SwitchWrapper = styled.div<{ active: boolean; $sponsor?: string }>`
   width: 40.84px;
   height: 22.69px;
   border-radius: 999px;
-  background-color: ${({ active }) => (active ? "#3FB0FF" : "#555")};
+  background-color: ${({ active, $sponsor }) => (active ? $sponsor : "#555")};
   padding: 2px;
   display: flex;
   align-items: center;

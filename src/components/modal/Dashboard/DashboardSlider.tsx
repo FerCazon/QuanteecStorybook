@@ -23,9 +23,9 @@ import {
   TopLeftContainer,
   Value,
 } from "./styles";
+import { TierLevel, tierMap } from "../../common/tiers";
 
 import { DashboardSliderProps } from "./types";
-import { tierMap, TierLevel } from "../../common/tiers";
 import { sponsorColorMap } from "../../common/sponsors";
 
 const DashboardSlider = ({
