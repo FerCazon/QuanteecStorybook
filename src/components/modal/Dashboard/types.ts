@@ -1,3 +1,4 @@
+import { Sponsor } from "../../common/sponsors";
 import { TierLevel } from "../../common/tiers";
 
 export interface DashboardSliderProps {
@@ -10,4 +11,5 @@ export interface DashboardSliderProps {
   tierLevel?: TierLevel;
   switchOn: boolean;
   onSwitchToggle: () => void;
+  sponsor?: Sponsor;
 }

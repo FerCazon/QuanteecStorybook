@@ -97,6 +97,7 @@ export const Default: Story = {
             tierLevel: tierLevel,
             switchOn: args.switchOn,
             onSwitchToggle: args.onSwitchToggle,
+            sponsor: args.sponsor,
           }}
         />
       </div>

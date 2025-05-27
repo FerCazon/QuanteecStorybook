@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface TabProps {
-  $active?: boolean
-  $color?: string
+  $active?: boolean;
+  $color?: string;
 }
 
 export const ModalWrapper = styled.div`
@@ -29,10 +29,10 @@ export const BorderContainer = styled.div<{ $color: string }>`
     transparent 100%
   );
   display: inline-block;
-`
+`;
 
-export const ModalContent = styled.div`
-  background-color: #000000; /* <- use a solid, opaque black */
+export const ModalContent = styled.div<{ $sponsor?: string }>`
+  background-color: #000000;
   padding: 69.5px 68.5px;
   border-radius: 20px;
   width: 500px;
@@ -41,7 +41,28 @@ export const ModalContent = styled.div`
   gap: 16px;
   position: relative;
   z-index: 1;
-`
+
+  ${({ $sponsor }) =>
+    $sponsor === "redbull" &&
+    css`
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(238, 60, 71, 0.4) 0%,
+          rgba(238, 60, 71, 0.2) 20%,
+          transparent 50%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+    `}
+`;
 
 export const SponsorWrapper = styled.div`
   display: flex;
@@ -62,7 +83,7 @@ export const SponsorBlock = styled.div`
     width: 160px;
     height: auto;
   }
-`
+`;
 
 export const Header = styled.div`
   display: flex;
@@ -70,9 +91,9 @@ export const Header = styled.div`
   align-items: center;
   font-size: 40px;
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin-bottom: 23.52px;
-`
+`;
 
 export const CloseButton = styled.button`
   background: #ffffff1a;
@@ -88,7 +109,7 @@ export const CloseButton = styled.button`
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 25px;
     height: 3.3px;
@@ -107,14 +128,14 @@ export const CloseButton = styled.button`
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
-`
+`;
 
 export const Tabs = styled.div`
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
   margin-bottom: 18.63px;
-`
+`;
 
 export const Tab = styled.button<TabProps>`
   all: unset;
@@ -124,14 +145,14 @@ export const Tab = styled.button<TabProps>`
   max-width: 228px;
   color: white;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 28.74px;
   background: transparent;
 
   border-bottom: ${({ $active, $color }) =>
-    $active ? `3px solid ${$color}` : 'none'};
-`
+    $active ? `3px solid ${$color}` : "none"};
+`;
 
 export const CreditContainer = styled.div`
   display: flex;
