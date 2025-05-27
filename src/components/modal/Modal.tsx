@@ -11,8 +11,10 @@ import {
 
 import DashboardSlider from './Dashboard/DashboardSlider'
 import type { DashboardSliderProps } from './Dashboard/types'
+import type { Sponsor } from '../common/sponsors'
 import { StatusSlider } from './Status/StatusSlider'
 import type { StatusSliderProps } from './Status/types'
+import { sponsorColorMap } from '../common/sponsors'
 import { useState } from 'react'
 
 export interface ModalProps {
@@ -32,10 +34,12 @@ export const Modal = ({
     defaultSection
   )
   const [dashboardSwitchOn, setDashboardSwitchOn] = useState(false)
+  const sponsor = statusProps?.sponsor ?? 'quanteec'
+  const sponsorColor = sponsorColorMap[sponsor as Sponsor]
 
   return (
     <ModalWrapper>
-      <BorderContainer>
+      <BorderContainer $color={sponsorColor}>
         <ModalContent>
           <Header>
             <span>StreamBoost</span>
@@ -44,12 +48,14 @@ export const Modal = ({
 
           <Tabs>
             <Tab
+              $color={sponsorColor}
               onClick={() => setActiveSection('status')}
               $active={activeSection === 'status'}
             >
               Status
             </Tab>
             <Tab
+              $color={sponsorColor}
               onClick={() => setActiveSection('dashboard')}
               $active={activeSection === 'dashboard'}
             >

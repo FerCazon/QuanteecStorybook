@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 interface TabProps {
-  $active?: boolean;
+  $active?: boolean
+  $color?: string
 }
 
 export const ModalWrapper = styled.div`
@@ -17,13 +18,13 @@ export const ModalWrapper = styled.div`
   align-items: center;
 `
 
-export const BorderContainer = styled.div`
+export const BorderContainer = styled.div<{ $color: string }>`
   padding: 2px;
   border-radius: 22px; /* slightly more than content to avoid clipping */
   background: linear-gradient(
     to bottom,
-    #2f90b0 0%,
-    #2f90b0 5%,
+    ${({ $color }) => $color} 0%,
+    ${({ $color }) => $color} 5%,
     transparent 100%
   );
   display: inline-block;
@@ -41,8 +42,21 @@ export const ModalContent = styled.div`
   z-index: 1;
 `
 
+export const SponsorBlock = styled.div`
+  margin-top: 20px;
+  padding: 16px;
+  background: #ea3a3a;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-
+  svg {
+    width: 160px;
+    height: auto;
+  }
+`
 
 export const Header = styled.div`
   display: flex;
@@ -50,9 +64,9 @@ export const Header = styled.div`
   align-items: center;
   font-size: 40px;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   margin-bottom: 23.52px;
-`;
+`
 
 export const CloseButton = styled.button`
   background: #ffffff1a;
@@ -68,7 +82,7 @@ export const CloseButton = styled.button`
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 25px;
     height: 3.3px;
@@ -87,14 +101,14 @@ export const CloseButton = styled.button`
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
-`;
+`
 
 export const Tabs = styled.div`
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
   margin-bottom: 18.63px;
-`;
+`
 
 export const Tab = styled.button<TabProps>`
   all: unset;
@@ -104,13 +118,14 @@ export const Tab = styled.button<TabProps>`
   max-width: 228px;
   color: white;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 28.74px;
   background: transparent;
 
-  border-bottom: ${({ $active }) => ($active ? "3px solid #2F90B0" : "none")};
-`;
+  border-bottom: ${({ $active, $color }) =>
+    $active ? `3px solid ${$color}` : 'none'};
+`
 
 export const CreditContainer = styled.div`
   display: flex;
