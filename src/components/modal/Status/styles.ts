@@ -3,20 +3,21 @@ import styled from "styled-components";
 export const StatusSliderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   width: 100%;
   max-width: 100%;
-`;
+`
 
 export const TopContainer = styled.div`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 33.53px;
   padding: 24.38px 28px;
   margin-bottom: 18.72px;
-`;
+`
 export const MidContainer = styled.div`
   display: flex;
   justify-content: space-between;
