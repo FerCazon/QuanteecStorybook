@@ -15,18 +15,34 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
+
+export const BorderContainer = styled.div`
+  padding: 2px;
+  border-radius: 22px; /* slightly more than content to avoid clipping */
+  background: linear-gradient(
+    to bottom,
+    #2f90b0 0%,
+    #2f90b0 5%,
+    transparent 100%
+  );
+  display: inline-block;
+`
 
 export const ModalContent = styled.div`
-  background: #00000099;
+  background-color: #000000; /* <- use a solid, opaque black */
   padding: 69.5px 68.5px;
-  border-radius: 57.49px;
+  border-radius: 20px;
   width: 500px;
   min-height: 600px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   color: white;
   gap: 16px;
-`;
+  position: relative;
+  z-index: 1;
+`
+
+
+
 
 export const Header = styled.div`
   display: flex;

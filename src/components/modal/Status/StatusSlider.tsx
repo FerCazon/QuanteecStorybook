@@ -26,10 +26,10 @@ import {
   TextContainerBottom,
   TopContainer,
 } from "./styles";
-import { StatusSliderProps } from "./types";
-import { tierMap, TierLevel } from "../../common/tiers";
+import { TierLevel, tierMap } from "../../common/tiers";
 import { sponsorColorMap } from "../../common/sponsors";
 
+import { StatusSliderProps } from "./types";
 import { useState } from "react";
 
 export const StatusSlider = ({
