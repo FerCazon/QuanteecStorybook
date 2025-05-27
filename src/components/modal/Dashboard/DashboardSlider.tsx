@@ -22,37 +22,37 @@ import {
   TopLeftContainer,
   Value,
 } from "./styles";
+import { TierLevel, tierMap } from '../../common/tiers'
 
-import { DashboardSliderProps } from "./types";
-import { tierMap, TierLevel } from "../../common/tiers";
-import { sponsorColorMap } from "../../common/sponsors";
+import { DashboardSliderProps } from './types'
+import { sponsorColorMap } from '../../common/sponsors'
 
 const DashboardSlider = ({
   connected = 28,
   sharedData = 80,
   energySaved = 45,
-  contributorsLabel = "Contributors",
-  dataLabel = "Data",
-  energyLabel = "Energy",
-  tierLevel = "lite",
+  contributorsLabel = 'Contributors',
+  dataLabel = 'Data',
+  energyLabel = 'Energy',
+  tierLevel = 'lite',
   switchOn,
   onSwitchToggle,
-  sponsor = "quanteec",
+  sponsor = 'quanteec',
 }: DashboardSliderProps) => {
-  const iconColor = sponsorColorMap[sponsor];
-  const tier = tierMap[tierLevel as TierLevel];
-  const TierIcon = tier.icon;
+  const iconColor = sponsorColorMap[sponsor]
+  const tier = tierMap[tierLevel as TierLevel]
+  const TierIcon = tier.icon
 
   const tierLevels: TierLevel[] = [
-    "core",
-    "lite",
-    "plus",
-    "pro",
-    "elite",
-    "turbo",
-  ];
-  const totalSteps = tierLevels.length;
-  const currentStep = tierLevels.indexOf(tierLevel as TierLevel) + 1;
+    'core',
+    'lite',
+    'plus',
+    'pro',
+    'elite',
+    'turbo',
+  ]
+  const totalSteps = tierLevels.length
+  const currentStep = tierLevels.indexOf(tierLevel as TierLevel) + 1
 
   return (
     <DashboardWrapper>
@@ -122,16 +122,16 @@ const DashboardSlider = ({
       <CardSpeed>
         <LeftContainerSpeed>
           <TopLeftContainer>
-            {tierLevel === "inactive" ? (
+            {tierLevel === 'inactive' ? (
               <StepCounter
-                style={{ fontSize: "32px", marginBottom: 7, marginTop: 9 }}
+                style={{ fontSize: '32px', marginBottom: 7, marginTop: 9 }}
               >
                 Inactive
               </StepCounter>
             ) : (
               <StepCounter>
                 {currentStep}
-                <Slash>/</Slash>
+                <Slash $color={iconColor}>/</Slash>
                 {totalSteps}
               </StepCounter>
             )}
@@ -163,7 +163,11 @@ const DashboardSlider = ({
                   </defs>
                 </svg>
               </RadioIcon>
-              <SwitchWrapper active={switchOn} onClick={onSwitchToggle}>
+              <SwitchWrapper
+                $color={iconColor}
+                active={switchOn}
+                onClick={onSwitchToggle}
+              >
                 <SwitchDot active={switchOn} />
               </SwitchWrapper>
             </LiteSwitchContainer>
@@ -173,14 +177,18 @@ const DashboardSlider = ({
             Speed
           </LiteTitle>
         </LeftContainerSpeed>
-        <DotColumn $inactive={tierLevel === "inactive"}>
+        <DotColumn $inactive={tierLevel === 'inactive'}>
           {Array.from({ length: 6 }).map((_, i) => (
-            <Dot key={i} active={switchOn && i < tier.dots} />
+            <Dot
+              $color={iconColor}
+              key={i}
+              active={switchOn && i < tier.dots}
+            />
           ))}
         </DotColumn>
       </CardSpeed>
     </DashboardWrapper>
-  );
-};
+  )
+}
 
 export default DashboardSlider;

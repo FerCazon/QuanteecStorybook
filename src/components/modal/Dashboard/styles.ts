@@ -121,17 +121,16 @@ export const LiteTitle = styled.div`
   font-weight: 700;
   font-family: "Inter", sans-serif;
 `;
-
-export const SwitchWrapper = styled.div<{ active: boolean }>`
+export const SwitchWrapper = styled.div<{ active: boolean; $color: string }>`
   width: 40.84px;
   height: 22.69px;
   border-radius: 999px;
-  background-color: ${({ active }) => (active ? "#3FB0FF" : "#555")};
+  background-color: ${({ active, $color }) => (active ? $color : '#555')};
   padding: 2px;
   display: flex;
   align-items: center;
   cursor: pointer;
-`;
+`
 
 export const SwitchDot = styled.div<{ active: boolean }>`
   width: 15.88px;
@@ -142,46 +141,46 @@ export const SwitchDot = styled.div<{ active: boolean }>`
   left: 2px;
   transition: 0.3s ease;
   transform: ${({ active }) =>
-    active ? "translateX(21px)" : "translateX(3px)"};
-`;
+    active ? 'translateX(21px)' : 'translateX(3px)'};
+`
 
 export const RadioIcon = styled.div<{ active: boolean }>`
   svg {
-    fill: ${({ active }) => (active ? "#3FB0FF" : "#555")};
+    fill: ${({ active }) => (active ? '#3FB0FF' : '#555')};
     width: 30px;
     height: 30px;
   }
   display: flex;
   margin-right: 2px;
-`;
+`
 
 export const LiteSwitchContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 3.94px;
-`;
+`
 
 export const DotColumn = styled.div<{ $inactive?: boolean }>`
   display: flex;
   flex-direction: column-reverse;
   gap: 6px;
-  /* margin-left: ${({ $inactive }) => ($inactive ? "8px" : "60px")}; */
-`;
+  /* margin-left: ${({ $inactive }) => ($inactive ? '8px' : '60px')}; */
+`
 
-export const Dot = styled.div<{ active: boolean }>`
-  width: 16.14px;
-  height: 16.14px;
+export const Dot = styled.div<{ active: boolean; $color: string }>`
+  width: 13.03px;
+  height: 13.03px;
   border-radius: 50%;
-  background-color: ${({ active }) =>
-    active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};
+  background-color: ${({ active, $color }) =>
+    active ? $color : 'rgba(255, 255, 255, 0.1)'};
   transition: background-color 0.3s ease;
-`;
+`
 
 export const LeftContainerSpeed = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
+`
 
 export const CardSpeed = styled.div`
   background-color: #1f1f1f;
@@ -192,21 +191,21 @@ export const CardSpeed = styled.div`
   width: 185.45px;
   height: 140px;
   justify-content: space-between;
-`;
+`
 
 export const TopLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const StepCounter = styled.p`
   font-size: 45px;
   font-weight: 700;
   color: white;
   margin: 0;
-  font-family: "Inter", sans-serif;
-`;
+  font-family: 'Inter', sans-serif;
+`
 
-export const Slash = styled.span`
-  color: #2f90b0;
-`;
+export const Slash = styled.span<{ $color: string }>`
+  color: ${({ $color }) => $color};
+`
