@@ -48,12 +48,14 @@ export const Modal = ({
 
           <Tabs>
             <Tab
+              $color={sponsorColor}
               onClick={() => setActiveSection('status')}
               $active={activeSection === 'status'}
             >
               Status
             </Tab>
             <Tab
+              $color={sponsorColor}
               onClick={() => setActiveSection('dashboard')}
               $active={activeSection === 'dashboard'}
             >
