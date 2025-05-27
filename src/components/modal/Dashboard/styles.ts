@@ -18,7 +18,6 @@ export const Card = styled.div`
   align-items: center;
 `;
 
-
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,12 +47,6 @@ export const Label = styled.div`
 export const Value = styled.div`
   font-size: 47.95px;
   font-weight: bold;
-  font-weight: 700;
-  font-family: "Inter", sans-serif;
-`;
-
-export const ValueSpeed = styled.div`
-  font-size: 30px;
   font-weight: 700;
   font-family: "Inter", sans-serif;
 `;
@@ -204,4 +197,16 @@ export const CardSpeed = styled.div`
 export const TopLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const StepCounter = styled.p`
+  font-size: 45px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+`;
+
+export const Slash = styled.span`
+  color: #2f90b0;
 `;

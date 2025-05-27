@@ -14,16 +14,18 @@ import {
   ProgressBar,
   ProgressFill,
   RadioIcon,
+  Slash,
+  StepCounter,
   Subtitle,
   SwitchDot,
   SwitchWrapper,
   TopLeftContainer,
   Value,
-  ValueSpeed,
 } from "./styles";
 
 import { DashboardSliderProps } from "./types";
 import { tierMap, TierLevel } from "../../common/tiers";
+import { sponsorColorMap } from "../../common/sponsors";
 
 const DashboardSlider = ({
   connected = 28,
@@ -35,8 +37,22 @@ const DashboardSlider = ({
   tierLevel = "lite",
   switchOn,
   onSwitchToggle,
+  sponsor = "quanteec",
 }: DashboardSliderProps) => {
+  const iconColor = sponsorColorMap[sponsor];
   const tier = tierMap[tierLevel as TierLevel];
+  const TierIcon = tier.icon;
+
+  const tierLevels: TierLevel[] = [
+    "core",
+    "lite",
+    "plus",
+    "pro",
+    "elite",
+    "turbo",
+  ];
+  const totalSteps = tierLevels.length;
+  const currentStep = tierLevels.indexOf(tierLevel as TierLevel) + 1;
 
   return (
     <DashboardWrapper>
@@ -106,15 +122,19 @@ const DashboardSlider = ({
       <CardSpeed>
         <LeftContainerSpeed>
           <TopLeftContainer>
-            <ImageContainer>
-              <img
-                src={`/images/icons/${tier.icon}.png`}
-                alt={tier.label}
-                width={tier.icon === "Check" ? 30 : 35}
-                height={tier.icon === "Check" ? 30 : 35}
-              />
-              <ValueSpeed>{tier.label}</ValueSpeed>
-            </ImageContainer>
+            {tierLevel === "inactive" ? (
+              <StepCounter
+                style={{ fontSize: "32px", marginBottom: 7, marginTop: 9 }}
+              >
+                Inactive
+              </StepCounter>
+            ) : (
+              <StepCounter>
+                {currentStep}
+                <Slash>/</Slash>
+                {totalSteps}
+              </StepCounter>
+            )}
             <LiteSwitchContainer>
               <RadioIcon active={switchOn}>
                 <svg
@@ -149,12 +169,7 @@ const DashboardSlider = ({
             </LiteSwitchContainer>
           </TopLeftContainer>
           <LiteTitle>
-            <img
-              src="/images/icons/Boost.png"
-              alt="check"
-              width={24}
-              height={24}
-            />
+            <TierIcon width={30} height={30} color={iconColor} />
             Speed
           </LiteTitle>
         </LeftContainerSpeed>
