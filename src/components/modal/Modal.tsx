@@ -1,16 +1,20 @@
 import {
   BorderContainer,
+  BottomContainer,
   CloseButton,
   Header,
+  LearnMoreButton,
   ModalContent,
   ModalWrapper,
   SlideContainer,
   Tab,
   Tabs,
+  TextContainerBottom,
 } from './styles'
 
 import DashboardSlider from './Dashboard/DashboardSlider'
 import type { DashboardSliderProps } from './Dashboard/types'
+import RedBullSponsor from './sponsorsblocks/RedbullSponsor'
 import type { Sponsor } from '../common/sponsors'
 import { StatusSlider } from './Status/StatusSlider'
 import type { StatusSliderProps } from './Status/types'
@@ -22,12 +26,16 @@ export interface ModalProps {
   statusProps?: StatusSliderProps
   dashboardProps?: DashboardSliderProps
   defaultSection?: 'status' | 'dashboard'
+  bottomText?: string
+  learnMoreText?: string
 }
 
 export const Modal = ({
   onClose,
   statusProps,
   dashboardProps,
+  bottomText = 'Start being part of something new',
+  learnMoreText = 'Learn More',
   defaultSection = 'status',
 }: ModalProps) => {
   const [activeSection, setActiveSection] = useState<'status' | 'dashboard'>(
@@ -73,6 +81,14 @@ export const Modal = ({
               />
             )}
           </SlideContainer>
+          {statusProps?.sponsor && statusProps.sponsor !== 'quanteec' && (
+            <RedBullSponsor />
+          )}
+
+          <BottomContainer>
+            <TextContainerBottom>{bottomText}</TextContainerBottom>
+            <LearnMoreButton>{learnMoreText}</LearnMoreButton>
+          </BottomContainer>
         </ModalContent>
       </BorderContainer>
     </ModalWrapper>

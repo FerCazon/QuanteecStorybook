@@ -6,4 +6,6 @@ export interface ModalProps {
   statusProps?: StatusSliderProps
   dashboardProps?: DashboardSliderProps
   defaultSection?: 'status' | 'dashboard'
+  bottomText?: string
+  learnMoreText?: string
 }

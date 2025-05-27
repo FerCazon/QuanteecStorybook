@@ -1,10 +1,8 @@
 import {
-  BottomContainer,
   ClaimButton,
   Dot,
   DotColumn,
   GraphicsContainer,
-  LearnMoreButton,
   LeftGraphicsContainer,
   LeftMidContainer,
   LiteTitle,
@@ -23,9 +21,8 @@ import {
   SwitchDot,
   SwitchWrapper,
   TextContainer,
-  TextContainerBottom,
   TopContainer,
-} from "./styles";
+} from './styles'
 import { TierLevel, tierMap } from '../../common/tiers'
 
 import { StatusSliderProps } from './types'
@@ -36,9 +33,7 @@ export const StatusSlider = ({
   qoinsNumber = 102,
   progressBar = 100,
   showDots = true,
-  bottomText = 'Start being part of something new',
   radioLabel = 'Stream Boost',
-  learnMoreText = 'Learn More',
   claimText = 'Claim Qoins',
   qoinsLabel = 'Quoins Earned',
   nextGenText = 'Next Quoin gen',
@@ -123,11 +118,6 @@ export const StatusSlider = ({
           </SwitchWrapper>
         </SwitchContainer>
       </MidContainer>
-
-      <BottomContainer>
-        <TextContainerBottom>{bottomText}</TextContainerBottom>
-        <LearnMoreButton>{learnMoreText}</LearnMoreButton>
-      </BottomContainer>
     </StatusSliderContainer>
   )
 }

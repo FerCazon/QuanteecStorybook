@@ -16,6 +16,7 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Inter', sans-serif;
 `
 
 export const BorderContainer = styled.div<{ $color: string }>`
@@ -42,9 +43,14 @@ export const ModalContent = styled.div`
   z-index: 1;
 `
 
+export const SponsorWrapper = styled.div`
+  display: flex;
+  paddingbottom: 20px;
+`
+
 export const SponsorBlock = styled.div`
   margin-top: 20px;
-  padding: 16px;
+  margin-bottom: 20px;
   background: #ea3a3a;
   border-radius: 16px;
   text-align: center;
@@ -131,7 +137,7 @@ export const CreditContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 12px;
-`;
+`
 
 export const CreditBox = styled.div`
   flex: 1;
@@ -141,7 +147,7 @@ export const CreditBox = styled.div`
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-`;
+`
 
 export const ToggleContainer = styled.div`
   display: flex;
@@ -150,9 +156,9 @@ export const ToggleContainer = styled.div`
   background: #222;
   padding: 12px;
   border-radius: 8px;
-`;
+`
 
-export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
+export const ToggleSwitch = styled.input.attrs({ type: 'checkbox' })`
   width: 40px;
   height: 20px;
   appearance: none;
@@ -166,7 +172,7 @@ export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 18px;
     height: 18px;
@@ -180,37 +186,49 @@ export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
   &:checked::before {
     left: 20px;
   }
-`;
+`
 export const LearnMoreButton = styled.button`
-  background: white;
+  all: unset;
+  display: flex;
+  text-align: center;
+  width: 208px;
+  background-color: white;
   color: black;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-`;
+  border-radius: 35.58px;
+  font-size: 26.35px;
+  font-weight: 600;
+  padding: 21px;
+`
 
 export const BottomPartContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-`;
+`
 
 export const BottomPartText = styled.p`
   display: flex;
   width: 50%;
-`;
+`
 
 export const BottomPartTextContainer = styled.div`
   display: flex;
   width: 50%;
-`;
+`
 
 export const SlideContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-`;
+`
+
+export const TextContainerBottom = styled.div`
+  font-size: 26.11px;
+  font-weight: 400;
+`
+
+export const BottomContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
