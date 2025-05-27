@@ -172,16 +172,16 @@ export const SwitchContainer = styled.div`
   gap: 16px;
 `;
 
-export const SwitchWrapper = styled.div<{ active: boolean }>`
+export const SwitchWrapper = styled.div<{ active: boolean; $color: string }>`
   width: 86.23px;
   height: 47.91px;
   border-radius: 999px;
-  background-color: ${({ active }) => (active ? "#3FB0FF" : "#555")};
+  background-color: ${({ active, $color }) => (active ? $color : '#555')};
   padding: 2px;
   display: flex;
   align-items: center;
   cursor: pointer;
-`;
+`
 
 export const SwitchDot = styled.div<{ active: boolean }>`
   width: 33.53px;

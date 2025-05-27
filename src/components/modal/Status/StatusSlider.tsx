@@ -116,6 +116,7 @@ export const StatusSlider = ({
           </TextContainer>
           <SwitchWrapper
             active={switchActive}
+            $color={iconColor}
             onClick={() => setSwitchActive(!switchActive)}
           >
             <SwitchDot active={switchActive} />
