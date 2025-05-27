@@ -95,6 +95,7 @@ export const DotColumn = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4px;
+  margin-left: 7px;
 `;
 
 export const Dot = styled.div<{ active: boolean; $color: string }>`
@@ -109,7 +110,7 @@ export const Dot = styled.div<{ active: boolean; $color: string }>`
 export const LiteTitle = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2.5px;
   font-size: 21.56px;
   font-weight: 500;
   font-family: "Inter", sans-serif;
@@ -117,6 +118,7 @@ export const LiteTitle = styled.div`
 
 export const LeftGraphicsContainer = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 11.98px;
   color: rgba(255, 255, 255, 0.5);
