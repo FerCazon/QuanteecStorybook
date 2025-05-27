@@ -22,7 +22,7 @@ export const ModalWrapper = styled.div`
 
 export const BorderContainer = styled.div<{ $color: string }>`
   padding: 2px;
-  border-radius: 22px; /* slightly more than content to avoid clipping */
+  border-radius: 22px; 
   background: linear-gradient(
     to bottom,
     ${({ $color }) => $color} 0%,

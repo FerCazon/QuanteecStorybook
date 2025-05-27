@@ -53,8 +53,8 @@ export const QoinsNumTopContainer = styled.div`
   font-size: 22px;
 `;
 export const ClaimButton = styled.button<{
-  disabled?: boolean;
-  $color: string;
+  disabled?: boolean
+  $color: string
 }>`
   all: unset;
   position: relative;
@@ -66,14 +66,14 @@ export const ClaimButton = styled.button<{
   text-align: center;
   border-radius: 14.21px;
   color: white;
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: all 0.3s ease;
-  background-color: ${({ disabled, $color }) => (disabled ? "#444" : $color)};
+  background-color: ${({ disabled, $color }) => (disabled ? '#444' : $color)};
   box-shadow: ${({ disabled, $color }) =>
-    disabled ? "none" : `0 2px 8px ${$color}66`}; /* 40% opacity */
+    disabled ? 'none' : `0 2px 8px ${$color}66`};
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -83,7 +83,7 @@ export const ClaimButton = styled.button<{
     background-size: 60px 100%;
     transform: scaleX(-1);
   }
-`;
+`
 
 export const QoinsNum = styled.div`
   font-size: 36.5px;
