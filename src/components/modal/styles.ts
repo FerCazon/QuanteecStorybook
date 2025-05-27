@@ -6,18 +6,19 @@ interface TabProps {
 }
 
 export const ModalWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-
+  min-height: 100vh;
   background: #0d0d0d;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Inter', sans-serif;
-`
+  font-family: "Inter", sans-serif;
+`;
 
 export const BorderContainer = styled.div<{ $color: string }>`
   padding: 2px;
@@ -66,8 +67,13 @@ export const ModalContent = styled.div<{ $sponsor?: string }>`
 
 export const SponsorWrapper = styled.div`
   display: flex;
-  paddingbottom: 20px;
-`
+`;
+
+export const LeftHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8.65px;
+`;
 
 export const SponsorBlock = styled.div`
   margin-top: 20px;
@@ -158,7 +164,7 @@ export const CreditContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 12px;
-`
+`;
 
 export const CreditBox = styled.div`
   flex: 1;
@@ -168,7 +174,7 @@ export const CreditBox = styled.div`
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-`
+`;
 
 export const ToggleContainer = styled.div`
   display: flex;
@@ -177,9 +183,9 @@ export const ToggleContainer = styled.div`
   background: #222;
   padding: 12px;
   border-radius: 8px;
-`
+`;
 
-export const ToggleSwitch = styled.input.attrs({ type: 'checkbox' })`
+export const ToggleSwitch = styled.input.attrs({ type: "checkbox" })`
   width: 40px;
   height: 20px;
   appearance: none;
@@ -193,7 +199,7 @@ export const ToggleSwitch = styled.input.attrs({ type: 'checkbox' })`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 18px;
     height: 18px;
@@ -207,7 +213,7 @@ export const ToggleSwitch = styled.input.attrs({ type: 'checkbox' })`
   &:checked::before {
     left: 20px;
   }
-`
+`;
 export const LearnMoreButton = styled.button`
   all: unset;
   display: flex;
@@ -219,37 +225,36 @@ export const LearnMoreButton = styled.button`
   font-size: 26.35px;
   font-weight: 600;
   padding: 21px;
-`
+`;
 
 export const BottomPartContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-`
+`;
 
 export const BottomPartText = styled.p`
   display: flex;
   width: 50%;
-`
+`;
 
 export const BottomPartTextContainer = styled.div`
   display: flex;
   width: 50%;
-`
+`;
 
 export const SlideContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-`
+`;
 
 export const TextContainerBottom = styled.div`
   font-size: 26.11px;
   font-weight: 400;
-`
+`;
 
 export const BottomContainer = styled.div`
   display: flex;
   align-items: center;
-`
-
+`;

@@ -3,19 +3,21 @@ import styled from "styled-components";
 export const DashboardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 14.39px;
+  gap: 10px;
+  justify-content: center;
 `;
 
 export const Card = styled.div`
-  background-color: #1f1f1f;
+  background-color: rgb(255, 255, 255, 0.05);
   border-radius: 33.57px;
   padding: 28.7px;
   color: white;
   display: flex;
-  width: 185.45px;
+  width: 183.45px;
   height: 140px;
   justify-content: space-around;
   align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
 export const InfoContainer = styled.div`
@@ -60,13 +62,14 @@ export const ProgressBar = styled.div`
   display: flex;
   align-items: flex-end;
   margin-left: 34.06px;
+  position: relative;
 `;
 
 export const ProgressFill = styled.div<{ height: number; color: string }>`
   width: 100%;
   height: ${({ height }) => `${height}%`};
   background-color: ${({ color }) => color};
-  border-radius: 20px;
+  border-radius: 0 0 0 20px;
   transition: height 0.3s ease-in-out;
 `;
 
@@ -122,7 +125,7 @@ export const LiteTitle = styled.div`
   font-family: "Inter", sans-serif;
 `;
 
-export const SwitchWrapper = styled.div<{ active: boolean }>`
+export const SwitchWrapper = styled.div<{ active: boolean; $sponsor?: string }>`
   width: 40.84px;
   height: 22.69px;
   border-radius: 999px;
@@ -131,6 +134,12 @@ export const SwitchWrapper = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
   cursor: pointer;
+  background-color: ${({ active, $sponsor }) =>
+    active
+      ? $sponsor === "redbull"
+        ? "#FF3B3B"
+        : "#2F90B0"
+      : "rgba(255, 255, 255, 0.1)"};
 `;
 
 export const SwitchDot = styled.div<{ active: boolean }>`
@@ -161,19 +170,23 @@ export const LiteSwitchContainer = styled.div`
   gap: 3.94px;
 `;
 
-export const DotColumn = styled.div<{ $inactive?: boolean }>`
+export const DotColumn = styled.div<{ $inactive?: boolean; $color?: string }>`
   display: flex;
   flex-direction: column-reverse;
   gap: 6px;
-  /* margin-left: ${({ $inactive }) => ($inactive ? "8px" : "60px")}; */
+  justify-content: center;
 `;
 
-export const Dot = styled.div<{ active: boolean }>`
+export const Dot = styled.div<{ active: boolean; $sponsor?: string }>`
   width: 16.14px;
   height: 16.14px;
   border-radius: 50%;
-  background-color: ${({ active }) =>
-    active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};
+  background-color: ${({ active, $sponsor }) =>
+    active
+      ? $sponsor === "redbull"
+        ? "#FF3B3B"
+        : "#2F90B0"
+      : "rgba(255, 255, 255, 0.1)"};
   transition: background-color 0.3s ease;
 `;
 
@@ -184,14 +197,15 @@ export const LeftContainerSpeed = styled.div`
 `;
 
 export const CardSpeed = styled.div`
-  background-color: #1f1f1f;
   border-radius: 33.57px;
   padding: 28.7px;
   color: white;
   display: flex;
-  width: 185.45px;
+  width: 183.45px;
   height: 140px;
   justify-content: space-between;
+  background-color: rgb(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
 export const TopLeftContainer = styled.div`
@@ -207,6 +221,18 @@ export const StepCounter = styled.p`
   font-family: "Inter", sans-serif;
 `;
 
-export const Slash = styled.span`
-  color: #2f90b0;
+export const Slash = styled.span<{ $sponsor?: string }>`
+  color: ${({ $sponsor }) => ($sponsor === "redbull" ? "#FF3B3B" : "#2f90b0")};
+`;
+
+export const PlusIcon = styled.div`
+  position: absolute;
+  top: -5px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: white;
+  z-index: 1;
 `;

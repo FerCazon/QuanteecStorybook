@@ -37,13 +37,13 @@ export const QoinsContainer = styled.div`
 `;
 export const GraphicsContainer = styled.div`
   display: flex;
-  width: fit-content;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 export const QoinsNumContainer = styled.div`
-  font-size: 22.26px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 27.17px;
+  font-weight: 700;
 `;
 
 export const QoinsNumTopContainer = styled.div`
@@ -95,7 +95,7 @@ export const DotColumn = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4px;
-  margin-left: 7px;
+  margin-left: 4px;
 `;
 
 export const Dot = styled.div<{ active: boolean; $color: string }>`
@@ -118,9 +118,8 @@ export const LiteTitle = styled.div`
 
 export const LeftGraphicsContainer = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 11.98px;
+  gap: 10px;
   color: rgba(255, 255, 255, 0.5);
 `;
 
@@ -129,7 +128,7 @@ export const RightGraphicsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: right;
-  margin-left: 57px;
+  gap: 10px;
 `;
 
 export const ProgressTextContainer = styled.div`
@@ -142,16 +141,16 @@ export const ProgressTextContainer = styled.div`
 `;
 
 export const PercentageText = styled.span`
-  color: white;
-  font-size: 28.74px;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 21.56px;
+  font-weight: 500;
   font-family: "Inter", sans-serif;
-  margin-left: 8px;
+  margin-left: 20px;
 `;
 
 export const ProgressBarBackground = styled.div`
   margin-top: 2px;
-  width: 100%;
+  width: 245px;
   height: 13px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 25px;
@@ -172,8 +171,8 @@ export const SwitchContainer = styled.div`
 `;
 
 export const SwitchWrapper = styled.div<{ active: boolean; $color: string }>`
-  width: 86.23px;
-  height: 47.91px;
+  width: 64.23px;
+  height: 35.68px;
   border-radius: 999px;
   background-color: ${({ active, $color }) => (active ? $color : "#555")};
   padding: 2px;
@@ -183,15 +182,15 @@ export const SwitchWrapper = styled.div<{ active: boolean; $color: string }>`
 `;
 
 export const SwitchDot = styled.div<{ active: boolean }>`
-  width: 33.53px;
-  height: 33.53px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: white;
   top: 2px;
   left: 2px;
   transition: 0.3s ease;
   transform: ${({ active }) =>
-    active ? "translateX(47px)" : "translateX(7px)"};
+    active ? "translateX(32px)" : "translateX(7px)"};
 `;
 
 export const RadioIcon = styled.div`
@@ -204,7 +203,7 @@ export const RadioIcon = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  font-size: 31.14px;
+  font-size: 21.42px;
   font-weight: 600;
 `;
 

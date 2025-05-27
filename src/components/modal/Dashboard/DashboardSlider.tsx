@@ -11,6 +11,7 @@ import {
   LeftContainerSpeed,
   LiteSwitchContainer,
   LiteTitle,
+  PlusIcon,
   ProgressBar,
   ProgressFill,
   RadioIcon,
@@ -94,6 +95,10 @@ const DashboardSlider = ({
             {dataLabel}
           </Label>
         </LeftContainer>
+        <ProgressBar>
+          <PlusIcon>+</PlusIcon>
+          <ProgressFill color="#88C544" height={energySaved} />
+        </ProgressBar>
       </Card>
 
       <Card>
@@ -131,7 +136,7 @@ const DashboardSlider = ({
             ) : (
               <StepCounter>
                 {currentStep}
-                <Slash>/</Slash>
+                <Slash $sponsor={sponsor}>/</Slash>
                 {totalSteps}
               </StepCounter>
             )}
@@ -163,7 +168,11 @@ const DashboardSlider = ({
                   </defs>
                 </svg>
               </RadioIcon>
-              <SwitchWrapper active={switchOn} onClick={onSwitchToggle}>
+              <SwitchWrapper
+                active={switchOn}
+                onClick={onSwitchToggle}
+                $sponsor={sponsor}
+              >
                 <SwitchDot active={switchOn} />
               </SwitchWrapper>
             </LiteSwitchContainer>
@@ -175,7 +184,11 @@ const DashboardSlider = ({
         </LeftContainerSpeed>
         <DotColumn $inactive={tierLevel === "inactive"}>
           {Array.from({ length: 6 }).map((_, i) => (
-            <Dot key={i} active={switchOn && i < tier.dots} />
+            <Dot
+              key={i}
+              active={switchOn && i < tier.dots}
+              $sponsor={sponsor}
+            />
           ))}
         </DotColumn>
       </CardSpeed>

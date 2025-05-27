@@ -4,6 +4,7 @@ import {
   CloseButton,
   Header,
   LearnMoreButton,
+  LeftHeader,
   ModalContent,
   ModalWrapper,
   SlideContainer,
@@ -14,28 +15,29 @@ import {
 
 import DashboardSlider from "./Dashboard/DashboardSlider";
 import type { DashboardSliderProps } from "./Dashboard/types";
-import RedBullSponsor from './sponsorsblocks/RedbullSponsor'
+import RedBullSponsor from "./sponsorsblocks/RedbullSponsor";
 import type { Sponsor } from "../common/sponsors";
 import { StatusSlider } from "./Status/StatusSlider";
 import type { StatusSliderProps } from "./Status/types";
 import { sponsorColorMap } from "../common/sponsors";
 import { useState } from "react";
+import HexagonCog from "../svg/HexagonCog";
 
 export interface ModalProps {
   onClose: () => void;
   statusProps?: StatusSliderProps;
   dashboardProps?: DashboardSliderProps;
   defaultSection?: "status" | "dashboard";
-  bottomText?: string
-  learnMoreText?: string
+  bottomText?: string;
+  learnMoreText?: string;
 }
 
 export const Modal = ({
   onClose,
   statusProps,
   dashboardProps,
-  bottomText = 'Start being part of something new',
-  learnMoreText = 'Learn More',
+  bottomText = "Start being part of something new",
+  learnMoreText = "Learn More",
   defaultSection = "status",
 }: ModalProps) => {
   const [activeSection, setActiveSection] = useState<"status" | "dashboard">(
@@ -50,7 +52,10 @@ export const Modal = ({
       <BorderContainer $color={sponsorColor}>
         <ModalContent $sponsor={sponsor}>
           <Header>
-            <span>StreamBoost</span>
+            <LeftHeader>
+              <HexagonCog />
+              StreamBoost
+            </LeftHeader>
             <CloseButton onClick={onClose} />
           </Header>
 
@@ -81,14 +86,16 @@ export const Modal = ({
               />
             )}
           </SlideContainer>
-          {statusProps?.sponsor && statusProps.sponsor !== 'quanteec' && (
+          {statusProps?.sponsor && statusProps.sponsor !== "quanteec" && (
             <RedBullSponsor />
           )}
 
-          <BottomContainer>
-            <TextContainerBottom>{bottomText}</TextContainerBottom>
-            <LearnMoreButton>{learnMoreText}</LearnMoreButton>
-          </BottomContainer>
+          {activeSection === "status" && (
+            <BottomContainer>
+              <TextContainerBottom>{bottomText}</TextContainerBottom>
+              <LearnMoreButton>{learnMoreText}</LearnMoreButton>
+            </BottomContainer>
+          )}
         </ModalContent>
       </BorderContainer>
     </ModalWrapper>
