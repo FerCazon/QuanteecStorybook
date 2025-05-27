@@ -55,7 +55,10 @@ export const QoinsNumTopContainer = styled.div`
   margin-bottom: 10.66px;
   font-size: 22px;
 `;
-export const ClaimButton = styled.button`
+export const ClaimButton = styled.button<{
+  disabled?: boolean
+  $color: string
+}>`
   all: unset;
   position: relative;
 
@@ -66,14 +69,14 @@ export const ClaimButton = styled.button`
   text-align: center;
   border-radius: 14.21px;
   color: white;
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: all 0.3s ease;
-  background-color: ${({ disabled }) => (disabled ? "#444" : "#2F90B0")};
-  box-shadow: ${({ disabled }) =>
-    disabled ? "none" : "0 2px 8px rgba(47, 144, 176, 0.4)"};
+  background-color: ${({ disabled, $color }) => (disabled ? '#444' : $color)};
+  box-shadow: ${({ disabled, $color }) =>
+    disabled ? 'none' : `0 2px 8px ${$color}66`}; /* 40% opacity */
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -83,28 +86,28 @@ export const ClaimButton = styled.button`
     background-size: 60px 100%;
     transform: scaleX(-1);
   }
-`;
+`
 
 export const QoinsNum = styled.div`
   font-size: 36.5px;
   font-weight: 700;
   margin-right: 13.71px;
-`;
+`
 
 export const DotColumn = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4px;
-`;
+`
 
-export const Dot = styled.div<{ active: boolean }>`
+export const Dot = styled.div<{ active: boolean; $color: string }>`
   width: 13.03px;
   height: 13.03px;
   border-radius: 50%;
-  background-color: ${({ active }) =>
-    active ? "#2F90B0" : "rgba(255, 255, 255, 0.1)"};
+  background-color: ${({ active, $color }) =>
+    active ? $color : 'rgba(255, 255, 255, 0.1)'};
   transition: background-color 0.3s ease;
-`;
+`
 
 export const LiteTitle = styled.div`
   display: flex;
@@ -112,15 +115,15 @@ export const LiteTitle = styled.div`
   gap: 8px;
   font-size: 21.56px;
   font-weight: 500;
-  font-family: "Inter", sans-serif;
-`;
+  font-family: 'Inter', sans-serif;
+`
 
 export const LeftGraphicsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 11.98px;
   color: rgba(255, 255, 255, 0.5);
-`;
+`
 
 export const RightGraphicsContainer = styled.div`
   display: flex;
@@ -128,7 +131,7 @@ export const RightGraphicsContainer = styled.div`
   justify-content: center;
   align-items: right;
   margin-left: 57px;
-`;
+`
 
 export const ProgressTextContainer = styled.div`
   font-size: 21.56px;
@@ -136,16 +139,16 @@ export const ProgressTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Inter", sans-serif;
-`;
+  font-family: 'Inter', sans-serif;
+`
 
 export const PercentageText = styled.span`
   color: white;
   font-size: 28.74px;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   margin-left: 8px;
-`;
+`
 
 export const ProgressBarBackground = styled.div`
   margin-top: 2px;
@@ -154,14 +157,14 @@ export const ProgressBarBackground = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 25px;
   overflow: hidden;
-`;
+`
 
-export const ProgressBarFill = styled.div`
+export const ProgressBarFill = styled.div<{ $color: string }>`
   height: 100%;
-  background-color: #2f90b0;
+  background-color: ${({ $color }) => $color};
   border-radius: 4px 0 0 4px;
   transition: width 0.3s ease;
-`;
+`
 
 export const SwitchContainer = styled.div`
   display: flex;

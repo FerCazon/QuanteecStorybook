@@ -17,13 +17,13 @@ export const ModalWrapper = styled.div`
   align-items: center;
 `
 
-export const BorderContainer = styled.div`
+export const BorderContainer = styled.div<{ $color: string }>`
   padding: 2px;
   border-radius: 22px; /* slightly more than content to avoid clipping */
   background: linear-gradient(
     to bottom,
-    #2f90b0 0%,
-    #2f90b0 5%,
+    ${({ $color }) => $color} 0%,
+    ${({ $color }) => $color} 5%,
     transparent 100%
   );
   display: inline-block;
@@ -41,6 +41,21 @@ export const ModalContent = styled.div`
   z-index: 1;
 `
 
+export const SponsorBlock = styled.div`
+  margin-top: 20px;
+  padding: 16px;
+  background: #ea3a3a;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 160px;
+    height: auto;
+  }
+`
 
 
 
