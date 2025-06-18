@@ -1,9 +1,9 @@
-import RedBullLogo from '.././../svg/redbull.svg' // Adjust this path as needed
+import RedBullLogo from '.././../svg/redbull.svg'
 import { SponsorBlock } from '../styles'
 
 const RedBullSponsor = () => (
   <SponsorBlock>
-     <img src={RedBullLogo} alt="RedBull Sponsor" />  
+    <img src={RedBullLogo} alt="RedBull Sponsor" />
   </SponsorBlock>
 )
 
